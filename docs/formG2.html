@@ -62,7 +62,7 @@
                  name="username"
                  id="username"
                  placeholder="Nombre de Usuario"
-                 class="form-control">
+                 class="form-control" required>
         </div>
 
         <div class="mb-3 input-group">
@@ -72,14 +72,14 @@
                  name="name"
                  id="name"
                  placeholder="Nombre"
-                 class="form-control">
+                 class="form-control" required>
           <label for="name"
                  class="d-none"> Apellidos </label>
           <input type="text"
                  name="surname"
                  id="surname"
                  placeholder="Apellidos"
-                 class="form-control">
+                 class="form-control" required>
         </div>
 
         <div class="mb-3">
@@ -89,7 +89,7 @@
                  name="email"
                  id="email"
                  placeholder="E-mail"
-                 class="form-control">
+                 class="form-control" required>
         </div>
 
         <div class="mb-3 input-group">
@@ -99,14 +99,49 @@
                  name="password"
                  id="password"
                  placeholder="Contraseña"
-                 class="form-control">
+                 class="form-control" required>
           <label for="password-2"
                  class="d-none"> Contraseña </label>
           <input type="password"
                  name="password-2"
                  id="password-2"
                  placeholder="Repetir Contraseña"
-                 class="form-control">
+                 class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="hombre"> <input type="radio" name="genero" id="hombre"> Hombre </label>
+          <br>
+          <label for="mujer"> <input type="radio" name="genero" id="mujer"> Mujer </label>
+        </div>
+
+        <div>
+          <label for="fecha">Fecha de nacimiento: <input type="date" name="fecha" id="fecha"></label>
+        </div>
+
+        <div>
+          <label for="direccion">Dirección <input type="text" name="direccion" id="direccion"></label>  
+        </div>
+
+        <div>
+          <label for="pais">País <select>
+            <option value="A">Andorra</option>
+            <option value="E" selected="selected">España</option>
+            <option value="P">Portugal</option>
+          </select></label>
+        </div>
+
+        <div>
+          <label>Tarjeta de crédito <input type="number" name="tarjetaCredito1" id="tarjeta1" minlength="4" maxlength="4">-<input type="number" name="tarjetaCredito2" id="tarjeta2"  minlength="4" maxlength="4">-<input type="number" name="tarjetaCredito3" id="tarjeta3" minlength="4" maxlength="4">-<input type="number" name="tarjetaCredito4" id="tarjeta4" minlength="4" maxlength="4"></label>
+        </div>
+
+        <div class="form-check mb-3">
+          <label>
+            <input type="checkbox"
+                   name="notificaciones"
+                   id="notificaciones">
+              Activar notificaciones de la pagina
+          </label>
         </div>
 
         <div class="form-check mb-3">
