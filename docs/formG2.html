@@ -8,18 +8,7 @@
         content="width=device-width, initial-scale=1.0">
   <title>E-Book</title>
 
-  <!-- BOOTSTRAP -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-        crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-          crossorigin="anonymous"></script> -->
-
   <!-- CSS -->
-  <!-- <link rel="stylesheet"
-        href="css/style.css"> -->
   <link rel="stylesheet"
         href="css/landing.css">
 </head>
@@ -53,30 +42,35 @@
     </article>
     <article id="mitadClara">
       <h2>REGÍSTRATE</h2>
-      <form action="">
+      <form action="" name="registrarse">
         <div>
-          <label for="username"> Nombre de Usuario </label>
-          <input type="username"
-                 name="username"
-                 id="username"
+          <label for="usuario"> Nombre de Usuario </label>
+          <input type="usuario"
+                 name="usuario"
+                 id="usuario"
                  class="largo"
                  placeholder="Nombre de Usuario"
                  required>
+          <p id="textoUsuario"></p>
         </div>
 
         <div>
-          <label for="name"> Nombre </label>
+          <label for="nombre"> Nombre </label>
           <input type="text"
-                 name="name"
-                 id="name"
+                 name="nombre"
+                 id="nombre"
+                 class="peque"
                  placeholder="Nombre"
                  required>
-          <label for="name"> Apellidos </label>
+          <label for="apellido"> Apellidos </label>
           <input type="text"
-                 name="surname"
-                 id="surname"
+                 name="apellido"
+                 id="apellido"
+                 class="peque"
                  placeholder="Apellidos"
                  required>
+          <p id="textoNombre"></p>
+          <p id="textoApellido"></p>
         </div>
 
         <div>
@@ -87,6 +81,7 @@
                  class="largo"
                  placeholder="E-mail"
                  required>
+          <p id="textoEmail"></p>
         </div>
 
         <div>
@@ -94,14 +89,18 @@
           <input type="password"
                  name="password"
                  id="password"
+                 class="peque"
                  placeholder="Contraseña"
                  required>
           <label for="password-2"> Contraseña </label>
           <input type="password"
                  name="password-2"
                  id="password-2"
+                 class="peque"
                  placeholder="Repetir Contraseña"
                  required>
+          <p id="textoPass"></p>
+
         </div>
 
         <div id="mitades">
@@ -118,15 +117,15 @@
 
         <div>
           <label for="direccion">Dirección <input type="text" name="direccion" id="direccion"></label>  
-          <label for="pais">País <select>
+          <label for="pais">País <select name="pais" id="pais">
             <option value="A">Andorra</option>
             <option value="E" selected="selected">España</option>
             <option value="P">Portugal</option>
           </select></label>
         </div>
 
-        <div>
-          <label id="tarjeta">Tarjeta de crédito <input type="number" name="tarjetaCredito1" id="tarjeta1" minlength="4" maxlength="4">-<input type="number" name="tarjetaCredito2" id="tarjeta2"  minlength="4" maxlength="4">-<input type="number" name="tarjetaCredito3" id="tarjeta3" minlength="4" maxlength="4">-<input type="number" name="tarjetaCredito4" id="tarjeta4" minlength="4" maxlength="4"></label>
+        <div id="tarjeta">
+          <label>Tarjeta de crédito <input type="number" name="tarjetaCredito1" id="tarjeta1" minlength="4" maxlength="4">-<input type="number" name="tarjetaCredito2" id="tarjeta2"  minlength="4" maxlength="4">-<input type="number" name="tarjetaCredito3" id="tarjeta3" minlength="4" maxlength="4">-<input type="number" name="tarjetaCredito4" id="tarjeta4" minlength="4" maxlength="4"></label>
         </div>
 
         <div>
@@ -141,8 +140,8 @@
         <div>
           <label>
             <input type="checkbox"
-                   name="privacy"
-                   id="privacy">
+                   name="privacidad"
+                   id="privacidad">
             Acepto los términos y condiciones de la <a href="#"
                >política de privacidad</a>.
           </label>
@@ -151,8 +150,8 @@
         <div>
           <label>
             <input type="checkbox"
-                   name="subscription"
-                   id="subscription"
+                   name="suscripcion"
+                   id="suscripcion"
                    checked>
             Quiero suscribirme al newsletter y recibir información periódica.
           </label>
@@ -163,7 +162,7 @@
       </form>
     </article>
   </main>
-
+  <script src="./js/validacion.js"></script>
 </body>
 
 </html>
