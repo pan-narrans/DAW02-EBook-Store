@@ -78,7 +78,7 @@ function validarEmail(){
     if (expresiones.correo.test(email.value) == false) {
         if(arroba !== 1){
             mensaje = "El email no es válido, debe tener una @.";
-        } else if (espacio > 0){
+        } else if (espacios > 0){
             mensaje = "El email no es válido, no puede tener espacios.";
         } else{
             mensaje = "El email no es válido, debe seguir la estructura \"ejemplo.correo@ejemplo.es\".";
@@ -110,12 +110,10 @@ function validarContrasenia(){
     } else if(expresionesEsp.test(password.value) === false){
         mensaje = "Debe contar con mínimo un caracter especial.";
         console.log("especiales");
-    } else {
-        if(password.value !== password2.value){
-            mensaje = "Las contraseñas deben ser iguales.";
-        } else{
-            mensaje = "";
-        }
+    } else if(password.value !== password2.value){
+        mensaje = "Las contraseñas deben ser iguales.";
+    } else{
+        mensaje = "";
     }
     document.getElementById("textoPass").innerHTML = mensaje;
 }
@@ -143,6 +141,37 @@ function validarDireccion(){
 //No funciona porque da error al ser nulos (arreglar)
 function validarEnviar(e) {
     e.preventDefault();
+
+    if (usuario.value === "") {
+        alert("Por favor, escribe tu nombre de usuario.");
+        usuario.focus();
+        return false;
+    }
+
+    if (nombre.value === "") {
+        alert("Por favor, escribe tu nombre.");
+        nombre.focus();
+        return false;
+    }
+    
+    if (apellido.value === "") {
+        alert("Por favor, escribe tu apellido.");
+        apellido.focus();
+        return false;
+    }
+      
+    if (email.value === "") {
+        alert("Por favor, escribe tu correo electrónico.");
+        email.focus();
+        return false;
+    }
+
+    if (password.value === "" || password2.value === "") {
+        alert("Por favor, escribe tu contraseña.");
+        password.focus();
+        return false;
+    }
+    return true;
 }
 
 //Llamadas a las funciones al escribir una letra y al pinchar fuera de su casilla
@@ -159,4 +188,4 @@ password.addEventListener("blur", validarContrasenia);
 direccion.addEventListener("keyup", validarDireccion);
 direccion.addEventListener("blur", validarDireccion);
 
-formulario.addEventListener("submit", validarEnviar);
+formulario.addEventListener('submit', validarEnviar); //Esto me da error, dice que no se puede hacer event listener de null
