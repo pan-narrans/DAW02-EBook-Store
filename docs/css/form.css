@@ -1,0 +1,7 @@
+*:required + span::after {
+  content: " *";
+  color: #e32;
+  position: absolute;
+  margin: 0 0 0 -20px;
+  padding: 0 5px 0 0;
+}

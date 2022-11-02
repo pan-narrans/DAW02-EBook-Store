@@ -21,15 +21,36 @@
   <link rel="stylesheet"
         href="css/style.css">
   <link rel="stylesheet"
-        href="css/landing.css">
+        href="css/form.css">
 </head>
 
 <body class="vh-100">
 
   <!-- ACCESSIBILITY BUTTONS -->
-  <nav class="navbar sticky-top text-bg-light justify-content-end">
+  <!-- v2
+    <nav class="navbar sticky-top justify-content-end">
 
-    <section class="d-flex flex-md-column flex-row">
+    <section class="d-flex flex-md-column flex-row text-bg-light">
+      <button class="btn btn-accessibility">
+        <img src="icons/moon.svg">
+        <span>Modo Noche</span>
+      </button>
+      <button class="btn btn-accessibility">
+        <img src="icons/plus.svg">
+        <span>Aumentar Letra</span>
+      </button>
+      <button class="btn btn-accessibility">
+        <img src="icons/minus.svg">
+        <span>Reducir Letra</span>
+      </button>
+    </section>
+
+  </nav>
+
+ -->
+  <nav class="navbar sticky-top justify-content-center">
+
+    <section class="d-flex text-bg-light">
       <button class="btn btn-accessibility">
         <img src="icons/moon.svg">
         <span>Modo Noche</span>
@@ -48,6 +69,7 @@
 
   <main class="container">
     <div class="row align-items-center">
+
       <!-- IMAGE & TEXT -->
       <article class="col-md-6 col-sm-12 text-center">
         <img src="./img/Mock Book.png"
@@ -58,77 +80,199 @@
 
       <!-- FORM -->
       <article class="col-md-6 col-sm-12">
-        <h2 class="text-center">REGÍSTRATE</h2>
-        <form action="">
-          <div class="mb-3">
-            <label for="username"
+        <h2 class="text-center"
+            id="title">REGÍSTRATE</h2>
+        <form action=""
+              id="landingForm">
+
+          <!-- USERNAME -->
+          <div class="mb-3 input-group">
+            <label for="usuario"
                    class="d-none"> Nombre de Usuario </label>
-            <input type="username"
-                   name="username"
-                   id="username"
+            <input type="usuario"
+                   name="usuario"
+                   id="usuario"
                    placeholder="Nombre de Usuario"
-                   class="form-control">
+                   class="form-control"
+                   required>
+            <span></span>
           </div>
 
+          <!-- NAME & SURNAME -->
           <div class="mb-3 input-group">
-            <label for="name"
+            <label for="nombre"
                    class="d-none"> Nombre </label>
             <input type="text"
-                   name="name"
-                   id="name"
+                   name="nombre"
+                   id="nombre"
                    placeholder="Nombre"
-                   class="form-control">
+                   class="form-control"
+                   required>
+            <span></span>
             <label for="name"
                    class="d-none"> Apellidos </label>
             <input type="text"
-                   name="surname"
-                   id="surname"
+                   name="apellidos"
+                   id="apellidos"
                    placeholder="Apellidos"
-                   class="form-control">
+                   class="form-control"
+                   required>
+            <span></span>
           </div>
 
+          <!-- SURNAME ALERT -->
           <div class="mb-3">
+            <p id="apellidos_alert"
+               class="text-danger">
+              <span></span>
+            </p>
+          </div>
+
+          <!-- EMAIL -->
+          <div class="mb-3 input-group">
             <label for="email"
                    class="d-none"> E-mail </label>
             <input type="email"
                    name="email"
                    id="email"
                    placeholder="E-mail"
-                   class="form-control">
+                   class="form-control"
+                   required>
+            <span></span>
           </div>
 
+          <!-- PASSWORD -->
           <div class="mb-3 input-group">
             <label for="password"
                    class="d-none"> Contraseña </label>
             <input type="password"
-                   name="password"
-                   id="password"
+                   name="password_1"
+                   id="password_1"
                    placeholder="Contraseña"
-                   class="form-control">
+                   class="form-control"
+                   required>
+            <span></span>
             <label for="password-2"
                    class="d-none"> Contraseña </label>
             <input type="password"
-                   name="password-2"
-                   id="password-2"
+                   name="password_2"
+                   id="password_2"
                    placeholder="Repetir Contraseña"
+                   class="form-control"
+                   required>
+            <span></span>
+          </div>
+
+          <!-- PASSWORD ALERTS -->
+          <div class="mb-3"
+               id="password_alerts">
+            <p id="password_alert_match"
+               class="text-danger">
+              <span></span>
+            </p>
+            <p id="password_alert_length"
+               class="text-danger">
+              <span></span>
+            </p>
+            <p id="password_alert_uppercase"
+               class="text-danger">
+              <span></span>
+            </p>
+            <p id="password_alert_lowercase"
+               class="text-danger">
+              <span></span>
+            </p>
+            <p id="password_alert_number"
+               class="text-danger">
+              <span></span>
+            </p>
+            <p id="password_alert_symbol"
+               class="text-danger">
+              <span></span>
+            </p>
+          </div>
+
+          <!-- SEXO -->
+          <div class="mb-3">
+            <label for="hombre"> <input type="radio"
+                     class="form-check-input"
+                     name="genero"
+                     id="hombre"> Hombre </label>
+            <label for="mujer"> <input type="radio"
+                     class="form-check-input"
+                     name="genero"
+                     id="mujer"> Mujer </label>
+          </div>
+
+          <!-- CUMPLEAÑOS -->
+          <div class="mb-3 input-group">
+            <label for="fecha_nacimiento"
+                   class="input-group-text">Fecha de nacimiento: </label>
+            <input type="date"
+                   class="form-control"
+                   name="fecha_nacimiento"
+                   id="fecha">
+          </div>
+
+          <!-- DIRECCIÓN -->
+          <div class="mb-3 input-group">
+            <label for="direccion"
+                   class="input-group-text">Dirección</label>
+            <input type="text"
+                   name="direccion"
+                   id="direccion"
+                   class="form-control">
+            <label for="pais"
+                   class="d-none">País</label>
+            <select name="pais"
+                    id="pais"
+                    class="form-select">
+            </select>
+          </div>
+
+          <div class="input-group mb-3"
+               id="tarjeta_credito">
+            <label class="input-group-text">Tarjeta de crédito </label>
+            <input type="text"
+                   name="tarjeta_num_1"
+                   id="tarjeta_num_1"
+                   minlength="4"
+                   maxlength="4"
+                   class="form-control">
+            <input type="text"
+                   name="tarjeta_num_2"
+                   id="tarjeta_num_2"
+                   minlength="4"
+                   maxlength="4"
+                   class="form-control">
+            <input type="text"
+                   name="tarjeta_num_3"
+                   id="tarjeta_num_3"
+                   minlength="4"
+                   maxlength="4"
+                   class="form-control">
+            <input type="text"
+                   name="tarjeta_num_4"
+                   id="tarjeta_num_4"
+                   minlength="4"
+                   maxlength="4"
                    class="form-control">
           </div>
 
           <div class="form-check mb-3">
             <label>
               <input type="checkbox"
-                     name="privacy"
-                     id="privacy">
-              Acepto los términos y condiciones de la <a href="#"
-                 class="text-decoration-none">política de privacidad</a>.
+                     name="notificaciones"
+                     id="notificaciones">
+              Activar notificaciones de la pagina
             </label>
           </div>
 
           <div class="form-check mb-3">
             <label>
               <input type="checkbox"
-                     name="subscription"
-                     id="subscription"
+                     name="suscripcion"
+                     id="suscripcion"
                      checked>
               Quiero suscribirme al newsletter y recibir información periódica.
             </label>
@@ -142,7 +286,7 @@
     </div>
   </main>
 
-  <footer class="text-bg-dark"></footer>
+  <script src="./js/landing.js"></script>
 
 </body>
 
