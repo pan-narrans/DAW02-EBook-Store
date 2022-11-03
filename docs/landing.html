@@ -98,6 +98,14 @@
             <span></span>
           </div>
 
+          <!-- USERNAME ALERT -->
+          <div class="mb-3">
+            <p id="username_alert"
+               class="text-danger">
+              <span></span>
+            </p>
+          </div>
+
           <!-- NAME & SURNAME -->
           <div class="mb-3 input-group">
             <label for="nombre"
@@ -109,7 +117,7 @@
                    class="form-control"
                    required>
             <span></span>
-            <label for="name"
+            <label for="apellidos"
                    class="d-none"> Apellidos </label>
             <input type="text"
                    name="apellidos"
@@ -120,8 +128,12 @@
             <span></span>
           </div>
 
-          <!-- SURNAME ALERT -->
+          <!-- NAME & SURNAME ALERT -->
           <div class="mb-3">
+            <p id="nombre_alert"
+               class="text-danger">
+              <span></span>
+            </p>
             <p id="apellidos_alert"
                class="text-danger">
               <span></span>
@@ -196,15 +208,15 @@
           <div class="mb-3">
             <label for="hombre"> <input type="radio"
                      class="form-check-input"
-                     name="genero"
+                     name="sexo"
                      id="hombre"> Hombre </label>
             <label for="mujer"> <input type="radio"
                      class="form-check-input"
-                     name="genero"
+                     name="sexo"
                      id="mujer"> Mujer </label>
           </div>
 
-          <!-- CUMPLEAÑOS -->
+          <!-- EDAD -->
           <div class="mb-3 input-group">
             <label for="fecha_nacimiento"
                    class="input-group-text">Fecha de nacimiento: </label>
@@ -230,6 +242,7 @@
             </select>
           </div>
 
+          <!-- TARJETA DE CRÉDITO -->
           <div class="input-group mb-3"
                id="tarjeta_credito">
             <label class="input-group-text">Tarjeta de crédito </label>
@@ -257,6 +270,14 @@
                    minlength="4"
                    maxlength="4"
                    class="form-control">
+          </div>
+
+          <!-- TARJETA ALERT -->
+          <div class="mb-3">
+            <p id="tarjeta_alert"
+               class="text-danger">
+              <span></span>
+            </p>
           </div>
 
           <div class="form-check mb-3">
