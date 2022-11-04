@@ -21,7 +21,7 @@
   <link rel="stylesheet"
         href="css/style.css">
   <link rel="stylesheet"
-        href="css/form.css">
+        href="css/landing.css">
 </head>
 
 <body class="vh-100">
@@ -86,220 +86,256 @@
               id="landingForm">
 
           <!-- USERNAME -->
-          <div class="mb-3 input-group">
-            <label for="usuario"
-                   class="d-none"> Nombre de Usuario </label>
-            <input type="usuario"
-                   name="usuario"
-                   id="usuario"
-                   placeholder="Nombre de Usuario"
-                   class="form-control"
-                   required>
-            <span></span>
-          </div>
-
-          <!-- USERNAME ALERT -->
-          <div class="mb-3">
-            <p id="username_alert"
-               class="text-danger">
+          <fieldset>
+            <!-- <legend class="d-none">Nombre de Usuario</legend>  IMPLEMENTADO. ¿TIENE LOGICA? --> 
+            <div class="mb-3 input-group">
+              <label for="usuario"
+                    class="d-none"> Nombre de Usuario </label>
+              <input type="usuario"
+                    name="usuario"
+                    id="usuario"
+                    placeholder="Nombre de Usuario"
+                    class="form-control"
+                    required>
               <span></span>
-            </p>
-          </div>
+            </div>
+
+
+            <!-- USERNAME ALERT -->
+            <div class="mb-3">
+              <p id="username_alert"
+                class="text-danger">
+                <span></span>
+              </p>
+            </div>
+          </fieldset>
 
           <!-- NAME & SURNAME -->
-          <div class="mb-3 input-group">
-            <label for="nombre"
-                   class="d-none"> Nombre </label>
-            <input type="text"
-                   name="nombre"
-                   id="nombre"
-                   placeholder="Nombre"
-                   class="form-control"
-                   required>
-            <span></span>
-            <label for="apellidos"
-                   class="d-none"> Apellidos </label>
-            <input type="text"
-                   name="apellidos"
-                   id="apellidos"
-                   placeholder="Apellidos"
-                   class="form-control"
-                   required>
-            <span></span>
-          </div>
+          <fieldset>
+            <div class="mb-3 input-group">
+              <label for="nombre"
+                    class="d-none"> Nombre </label>
+              <input type="text"
+                    name="nombre"
+                    id="nombre"
+                    placeholder="Nombre"
+                    class="form-control"
+                    required>
+              <span></span>
+              <label for="apellidos"
+                    class="d-none"> Apellidos </label>
+              <input type="text"
+                    name="apellidos"
+                    id="apellidos"
+                    placeholder="Apellidos"
+                    class="form-control"
+                    required>
+              <span></span>
+            </div>
 
-          <!-- NAME & SURNAME ALERT -->
-          <div class="mb-3">
-            <p id="nombre_alert"
-               class="text-danger">
-              <span></span>
-            </p>
-            <p id="apellidos_alert"
-               class="text-danger">
-              <span></span>
-            </p>
-          </div>
+            <!-- NAME & SURNAME ALERT -->
+            <div class="mb-3">
+              <p id="nombre_alert"
+                class="text-danger">
+                <span></span>
+              </p>
+              <p id="apellidos_alert"
+                class="text-danger">
+                <span></span>
+              </p>
+            </div>
+          </fieldset>
 
           <!-- EMAIL -->
-          <div class="mb-3 input-group">
-            <label for="email"
-                   class="d-none"> E-mail </label>
-            <input type="email"
-                   name="email"
-                   id="email"
-                   placeholder="E-mail"
-                   class="form-control"
-                   required>
-            <span></span>
-          </div>
+          <fieldset>
+            <div class="mb-3 input-group">
+              <label for="email"
+                    class="d-none"> E-mail </label>
+              <input type="email"
+                    name="email"
+                    id="email"
+                    placeholder="E-mail"
+                    class="form-control"
+                    required>
+              <span></span>
+            </div>
+
+            <!-- COMPROBACIONES CORREO -->
+
+          </fieldset>
 
           <!-- PASSWORD -->
-          <div class="mb-3 input-group">
-            <label for="password"
-                   class="d-none"> Contraseña </label>
-            <input type="password"
-                   name="password_1"
-                   id="password_1"
-                   placeholder="Contraseña"
-                   class="form-control"
-                   required>
-            <span></span>
-            <label for="password-2"
-                   class="d-none"> Contraseña </label>
-            <input type="password"
-                   name="password_2"
-                   id="password_2"
-                   placeholder="Repetir Contraseña"
-                   class="form-control"
-                   required>
-            <span></span>
-          </div>
+          <fieldset>
+            <div class="mb-3 input-group">
+              <label for="password"
+                    class="d-none"> Contraseña </label>
+              <input type="password"
+                    name="password_1"
+                    id="password_1"
+                    placeholder="Contraseña"
+                    class="form-control"
+                    required>
+              <span></span>
+              <label for="password-2"
+                    class="d-none"> Contraseña </label>
+              <input type="password"
+                    name="password_2"
+                    id="password_2"
+                    placeholder="Repetir Contraseña"
+                    class="form-control"
+                    required>
+              <span></span>
+            </div>
 
-          <!-- PASSWORD ALERTS -->
-          <div class="mb-3"
-               id="password_alerts">
-            <p id="password_alert_match"
-               class="text-danger">
-              <span></span>
-            </p>
-            <p id="password_alert_length"
-               class="text-danger">
-              <span></span>
-            </p>
-            <p id="password_alert_uppercase"
-               class="text-danger">
-              <span></span>
-            </p>
-            <p id="password_alert_lowercase"
-               class="text-danger">
-              <span></span>
-            </p>
-            <p id="password_alert_number"
-               class="text-danger">
-              <span></span>
-            </p>
-            <p id="password_alert_symbol"
-               class="text-danger">
-              <span></span>
-            </p>
-          </div>
+            <!-- PASSWORD ALERTS -->
+            <div class="mb-3"
+                id="password_alerts">
+              <p id="password_alert_match"
+                class="text-danger">
+                <span></span>
+              </p>
+              <p id="password_alert_length"
+                class="text-danger">
+                <span></span>
+              </p>
+              <p id="password_alert_uppercase"
+                class="text-danger">
+                <span></span>
+              </p>
+              <p id="password_alert_lowercase"
+                class="text-danger">
+                <span></span>
+              </p>
+              <p id="password_alert_number"
+                class="text-danger">
+                <span></span>
+              </p>
+              <p id="password_alert_symbol"
+                class="text-danger">
+                <span></span>
+              </p>
+            </div>
+          </fieldset>
 
-          <!-- SEXO -->
-          <div class="mb-3">
-            <label for="hombre"> <input type="radio"
-                     class="form-check-input"
-                     name="sexo"
-                     id="hombre"> Hombre </label>
-            <label for="mujer"> <input type="radio"
-                     class="form-check-input"
-                     name="sexo"
-                     id="mujer"> Mujer </label>
-          </div>
+          <!-- Genero -->
+          <fieldset>
+            <legend class="d-none">Género</legend>
+            <div class="mb-3">
+              <label for="hombre"> <input type="radio"
+                      class="form-check-input"
+                      name="genero"
+                      id="hombre"> Hombre </label>
+              <label for="mujer"> <input type="radio"
+                      class="form-check-input"
+                      name="genero"
+                      id="mujer"> Mujer </label>
+            </div>
+          </fieldset>
 
           <!-- EDAD -->
-          <div class="mb-3 input-group">
-            <label for="fecha_nacimiento"
-                   class="input-group-text">Fecha de nacimiento: </label>
-            <input type="date"
-                   class="form-control"
-                   name="fecha_nacimiento"
-                   id="fecha_nacimiento">
-          </div>
+          <fieldset>
+            <div class="mb-3 input-group">
+              <label for="fecha_nacimiento"
+                    class="input-group-text">Fecha de nacimiento: </label>
+              <input type="date"
+                    class="form-control"
+                    name="fecha_nacimiento"
+                    id="fecha_nacimiento">
+            </div>
+
+            <!-- COMPROBACIONES EDAD -->
+          </fieldset>
 
           <!-- DIRECCIÓN -->
-          <div class="mb-3 input-group">
-            <label for="direccion"
-                   class="input-group-text">Dirección</label>
-            <input type="text"
-                   name="direccion"
-                   id="direccion"
-                   class="form-control">
-            <label for="pais"
-                   class="d-none">País</label>
-            <select name="pais"
-                    id="pais"
-                    class="form-select">
-            </select>
-          </div>
+          <fieldset>
+            <div class="mb-3 input-group">
+              <label for="direccion"
+                    class="input-group-text">Dirección</label>
+              <input type="text"
+                    name="direccion"
+                    id="direccion"
+                    class="form-control">
+              <label for="pais"
+                    class="d-none">País</label>
+              <select name="pais"
+                      id="pais"
+                      class="form-select">
+              </select>
+            </div>
+          </fieldset>
 
           <!-- TARJETA DE CRÉDITO -->
-          <div class="input-group mb-3"
-               id="tarjeta_credito">
-            <label class="input-group-text">Tarjeta de crédito </label>
-            <input type="text"
-                   name="tarjeta_num_1"
-                   id="tarjeta_num_1"
-                   minlength="4"
-                   maxlength="4"
-                   class="form-control">
-            <input type="text"
-                   name="tarjeta_num_2"
-                   id="tarjeta_num_2"
-                   minlength="4"
-                   maxlength="4"
-                   class="form-control">
-            <input type="text"
-                   name="tarjeta_num_3"
-                   id="tarjeta_num_3"
-                   minlength="4"
-                   maxlength="4"
-                   class="form-control">
-            <input type="text"
-                   name="tarjeta_num_4"
-                   id="tarjeta_num_4"
-                   minlength="4"
-                   maxlength="4"
-                   class="form-control">
-          </div>
+          <fieldset>
+            <div class="input-group mb-3"
+                id="tarjeta_credito">
+              <label class="input-group-text">Tarjeta de crédito </label>
+              <label for="tarjeta_num_1"
+                    class="d-none"> Tarjeta parte 1 </label>
+              <input type="text"
+                    name="tarjeta_num_1"
+                    id="tarjeta_num_1"
+                    minlength="4"
+                    maxlength="4"
+                    class="form-control">
+              <label for="tarjeta_num_2"
+                    class="d-none"> Tarjeta parte 2 </label>
+              <input type="text"
+                    name="tarjeta_num_2"
+                    id="tarjeta_num_2"
+                    minlength="4"
+                    maxlength="4"
+                    class="form-control">
+              <label for="tarjeta_num_3"
+                    class="d-none"> Tarjeta parte 3 </label>
+              <input type="text"
+                    name="tarjeta_num_3"
+                    id="tarjeta_num_3"
+                    minlength="4"
+                    maxlength="4"
+                    class="form-control">
+              <label for="tarjeta_num_4"
+                    class="d-none"> Tarjeta parte 4 </label>
+              <input type="text"
+                    name="tarjeta_num_4"
+                    id="tarjeta_num_4"
+                    minlength="4"
+                    maxlength="4"
+                    class="form-control">
+            </div>
 
-          <!-- TARJETA ALERT -->
-          <div class="mb-3">
-            <p id="tarjeta_alert"
-               class="text-danger">
-              <span></span>
-            </p>
-          </div>
+            <!-- TARJETA ALERT -->
+            <div class="mb-3">
+              <p id="tarjeta_alert"
+                class="text-danger">
+                <span></span>
+              </p>
+            </div>
+          </fieldset>
 
           <!-- NOTIFICACIONES -->
-          <div class="form-check mb-3">
-            <label>
-              <input type="checkbox"
-              name="notificaciones"
-              id="notificaciones">
-              Activar notificaciones de la pagina
-            </label>
-          </div>
+          <fieldset>
+            <div class="form-check mb-3">
+              <label>
+                <input type="checkbox"
+                name="notificaciones"
+                id="notificaciones">
+                Activar notificaciones de la pagina
+              </label>
+            </div>
+          </fieldset>
           
           <!-- SUBSCRIPCIÓN -->
-          <div class="form-check mb-3">
-            <label>
-              <input type="checkbox"
-                     name="suscripcion"
-                     id="suscripcion"
-                     checked>
-              Quiero suscribirme al newsletter y recibir información periódica.
-            </label>
-          </div>
+          <fieldset>
+            <div class="form-check mb-3">
+              <label>
+                <input type="checkbox"
+                      name="suscripcion"
+                      id="suscripcion"
+                      checked>
+                Quiero suscribirme al newsletter y recibir información periódica.
+              </label>
+            </div>
+          </fieldset>
 
           <!-- SUBMIT -->
           <button type="submit"
