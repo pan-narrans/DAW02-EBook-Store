@@ -8,45 +8,35 @@ const surname = document.getElementById("apellidos");
 const pass_1 = document.getElementById("password_1");
 const pass_2 = document.getElementById("password_2");
 
+const birth = document.getElementById("fecha_nacimiento");
+
 const address = document.getElementById("direccion");
 const countrySelect = document.getElementById("pais");
 const card = document.getElementById("tarjeta_credito");
 const card_4 = document.getElementById("tarjeta_num_4");
 
-const regEx = {
-  username:   /^\p{L}{3,20}$/u,
-  name:       /^\p{L}{3,30}$/u,
-
-  password:   /(?=.*\p{Lu})(?=.*\p{Ll})(?=.*\d)(?=.*[¿?¡!*.<>|@#~€¬"·$%&()={}\[\]\/\\_\-]).{8,}/u,
-  upperCase:  /(?=.*\p{Lu}).*/u,
-  lowerCase:  /(?=.*\p{Ll}).*/u,
-  number:     /(?=.*\d).*/u,
-  symbol:     /(?=.*[¿?¡!*.<>|@#~€¬"·$%&()={}\[\]\/\\_\-]).*/,
-
-  cardNumber: /^\d{4}$/,
-}
 
 const validate = function (e) {
   e.preventDefault();
   console.log("Le has dado a submit.")
 
   // Validate username
-  if (!validUsername(username.value)) {
-    validateUsername();
+  if (!validateUsername()) {
+    console.log("Problema con nombre de usuario.");
     username.focus();
     return false;
   }
 
   // Validate name
-  if (!validName(name.value)) {
-    validateName();
+  if (!validateName()) {
+    console.log("Problema con nombre.");
     name.focus();
     return false;
   }
 
   // Validate surname
-  if (!validSurname(surname.value)) {
-    validateSurname();
+  if (!validateSurname()) {
+    console.log("Problema con apellido.");
     surname.focus();
     return false;
   }
@@ -55,59 +45,100 @@ const validate = function (e) {
   // Done with default HTML validation for now
 
   // Validate password
-  if (!validPassword(pass_1.value)) {
-    validatePassword();
+  if (!validatePassword()) {
+    console.log("Problema con contraseña.");
     pass_1.focus();
     return false;
   }
 
   // Passwords match
-  if (pass_1.value !== pass_2.value) {
-    passwordMatch();
+  if (!passwordMatch()) {
+    console.log("Problema con contraseña 2.");
     pass_2.focus();
     return false;
   }
 
   // Validate age
-  // TODO preguntar a Carlos
+  if (!validateBirth()) {
+    console.log("Problema con fecha de nacimiento.");
+    birth.focus();
+    return false;
+  }
 
   // Validate credit card number
-  if (card.style.visibility != "none" && cardHasContent() && !cardHasValidContent()) {
-    validateCard();
+  if (card.style.visibility != "none" && validateCardNum()) {
+    console.log("Problema con tarjeta");
     card.focus();
     return false;
   }
 
   console.log("Enviando el formulario.")
+  document.getElementById("submit_alert").innerHTML = "Formulario enviado correctamente.";
   //form.submit();
 }
 
-// Validation pure functions
+//#region Validation pure functions
+
+const regEx = {
+  username: /^[\p{L}\d_-]{3,20}$/u,
+  name: /^(?=.{2,60}$)\p{L}*(\s\p{L}*)?$/u,
+
+  password: /(?=.*\p{Lu})(?=.*\p{Ll})(?=.*\d)(?=.*[¿?¡!*.<>|@#~€¬"·$%&()={}\[\]\/\\_\-]).{8,}/u,
+  upperCase: /(?=.*\p{Lu}).*/u,
+  lowerCase: /(?=.*\p{Ll}).*/u,
+  number: /(?=.*\d).*/u,
+  symbol: /(?=.*[¿?¡!*.<>|@#~€¬"·$%&()={}\[\]\/\\_\-]).*/,
+
+  cardNum: /^\d{16}$/,
+  cardNumPart: /^\d{4}$/,
+}
 
 const validUsername = function (str) {
-  const length = /^\p{L}{3,20}$/u;
-  return length.test(str);
+  return regEx.username.test(str);
 }
 
 const validName = function (str) {
-  const length = /^\p{L}{3,30}$/u;
-  return length.test(str);
+  return regEx.name.test(str);
 }
 
 const validSurname = function (str) {
-  // const twoWords = /^\p{L}+ \p{L}+$/;
-  return str.trim().split(' ').length < 3;
+  return regEx.name.test(str);
 }
 
 const validPassword = function (str) {
-  const validate = /(?=.*\p{Lu})(?=.*\p{Ll})(?=.*\d)(?=.*[¿?¡!*.<>|@#~€¬"·$%&()={}\[\]\/\\_\-]).{8,}/u;
-  return validate.test(str);
+  return regEx.password.test(str);
+}
+
+const validBirth = function (date) {
+  const birth = new Date(date);
+  const now = new Date();
+
+  let age = Math.floor((now - birth) / (1000 * 60 * 60 * 24 * 345));
+
+  return 18 < age && age < 120;
 }
 
 const validCardNum = function (str) {
-  const fourNum = /^\d{4}$/;
-  return fourNum.test(str);
+  return regEx.cardNum.test(str);
 }
+
+const luhn = function (cardNum) {
+  cardNum = String(cardNum).split('').reverse().map(x => parseInt(x));
+  let sum = 0;
+  let parity = cardNum.length % 2;
+
+  for (let i = 0; i < cardNum.length; i++) {
+    if (i % 2 == 0)
+      sum = sum + cardNum[i];
+    else if (cardNum[i] > 4)
+      sum = sum + (2 * cardNum[i]) - 9;
+    else
+      sum = sum + 2 * cardNum[i];
+  }
+  return sum % 10 == 0;
+}
+
+//#endregion
 
 // Validation events
 
@@ -117,10 +148,12 @@ const validateUsername = function () {
 
   if (!validUsername(username.value)) {
     let message = "El nombre de usuario tiene que tener entre 3 y 20 caracteres.";
-    console.log(message)
+    console.log(message);
     document.getElementById("username_alert").innerHTML = message;
+    return false;
   } else {
-    console.log("Nombre de usuario válido.")
+    console.log("Nombre de usuario válido.");
+    return true;
   }
 }
 
@@ -129,11 +162,13 @@ const validateName = function () {
   document.getElementById("nombre_alert").innerHTML = "";
 
   if (!validName(name.value)) {
-    let message = "El nombre de usuario tiene que tener entre 3 y 30 caracteres.";
-    console.log(message)
+    let message = "Un nombre solo puede contener letras, un máximo de dos palabras y 60 caracteres.";
+    console.log(message);
     document.getElementById("nombre_alert").innerHTML = message;
+    return false;
   } else {
-    console.log("Nombre válido.")
+    console.log("Nombre válido.");
+    return true;
   }
 }
 
@@ -142,11 +177,13 @@ const validateSurname = function () {
   document.getElementById("apellidos_alert").innerHTML = "";
 
   if (!validSurname(surname.value)) {
-    let message = "Introduce máximo dos apellidos.";
+    let message = "Un apellido solo puede contener letras, un máximo de dos palabras y 60 caracteres.";
     console.log(message)
     document.getElementById("apellidos_alert").innerHTML = message;
+    return false;
   } else {
-    console.log("Apellidos válidos.")
+    console.log("Apellidos válidos.");
+    return true;
   }
 }
 
@@ -159,8 +196,10 @@ const validatePassword = function () {
   if (!validPassword(pass_1.value)) {
     console.log("La contraseña no es válida.");
     passwordShowCorrections(pass_1.value);
+    return false;
   } else {
     console.log("La contraseña es válida.");
+    return true;
   }
 }
 
@@ -214,38 +253,57 @@ const passwordMatch = function () {
     const message = "Las contraseñas no coinciden.";
     console.log(message);
     document.getElementById("password_alert_match").innerHTML = message;
+    return false;
   } else {
-    console.log("Las contraseñas coinciden.")
+    console.log("Las contraseñas coinciden.");
+    return true;
   }
 }
 
-const validateCard = function () {
+const validateBirth = function () {
+  document.getElementById("fecha_alert").innerHTML = "";
+
+  if (birth.value != "" && !validBirth(birth.value)) {
+    let message = "Tienes que tener entre 18 y 120 años para poder leer.";
+    console.log(message);
+    document.getElementById("fecha_alert").innerHTML = message;
+    return false;
+  } else {
+    console.log("La edad es válida o no está declarada.");
+    return true;
+  }
+}
+
+// TODO
+const validateCardPart = function (e) {
+  // document.getElementById("tarjeta_alert").innerHTML = "";
+
+  // if (!validCardNum(e.target.value)) {
+  //   let message = "Uno de los campos no es válido.";
+  //   console.log(message)
+  //   document.getElementById("tarjeta_alert").innerHTML = message;
+  // } else {
+  //   console.log("La tarjeta de crédito es válida.");
+  // }
+}
+
+const validateCardNum = function () {
   document.getElementById("tarjeta_alert").innerHTML = "";
 
-  if (!cardHasValidContent()) {
-    let message = "La tarjeta de crédito no es válida.";
-    console.log(message)
+  // Piece together the card number form the four inputs
+  let num = "";
+  for (let i = 1; i < 5; i++)
+    num += document.getElementById("tarjeta_num_" + i).value;
+
+  if (num !== "" || !validCardNum(num) && !luhn(num)) {
+    message = "El numero de la tarjeta no es válido.";
+    console.log(message);
     document.getElementById("tarjeta_alert").innerHTML = message;
+    return false;
   } else {
-    console.log("La tarjeta de crédito es válida.");
+    console.log("El numero de la tarjeta es válido o no ha sido rellenado.");
+    return true;
   }
-}
-
-const cardHasContent = function () {
-  for (let i = 1; i < 5; i++)
-    if (document.getElementById("tarjeta_num_" + i).value != "")
-      return true;
-  return false;
-}
-
-const cardHasValidContent = function () {
-  let valid = true;
-
-  for (let i = 1; i < 5; i++)
-    if (!validCardNum(document.getElementById("tarjeta_num_" + i).value))
-      valid = false;
-
-  return valid;
 }
 
 /* ADDRESS AND SHOW CARD INFO */
@@ -255,6 +313,8 @@ const showHideCard = function () {
   else
     card.style.display = "flex";
 }
+
+//#region Countries
 
 // Europe
 const countries = [
@@ -322,15 +382,22 @@ function generateCountries() {
   countrySelect.innerHTML = content;
 }
 
+//#endregion
+
 function init() {
   generateCountries();
   showHideCard();
+}
+
+const trim = function (e) {
+  e.target.value = e.target.value.trim();
 }
 
 // Event Listeners
 window.addEventListener('load', init)
 
 form.addEventListener('submit', e => validate(e));
+form.addEventListener('focusout', trim);
 
 username.addEventListener('blur', validateUsername);
 name.addEventListener('blur', validateName);
@@ -339,8 +406,10 @@ surname.addEventListener('blur', validateSurname);
 pass_1.addEventListener('blur', validatePassword);
 pass_2.addEventListener('blur', passwordMatch);
 
+birth.addEventListener('blur', validateBirth);
+
 address.addEventListener('blur', showHideCard);
 countrySelect.addEventListener('change', showHideCard);
-// TODO revisar la validación de la tarjeta
-// TODO preguntar por tarjeta caducidad etc
-card_4.addEventListener('blur', validateCard);
+
+card.addEventListener('focusout', validateCardPart);
+card_4.addEventListener('blur', validateCardNum);
