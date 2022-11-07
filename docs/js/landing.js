@@ -295,7 +295,7 @@ const validateCardNum = function () {
   for (let i = 1; i < 5; i++)
     num += document.getElementById("tarjeta_num_" + i).value;
 
-  if (num !== "" || !validCardNum(num) && !luhn(num)) {
+  if (num === "" || !validCardNum(num) && !luhn(num)) {
     message = "El numero de la tarjeta no es válido.";
     console.log(message);
     document.getElementById("tarjeta_alert").innerHTML = message;
