@@ -83,6 +83,8 @@ const regEx = {
   username: /^[\p{L}\d_-]{3,20}$/u,
   name: /^(?=.{2,60}$)\p{L}*(\s\p{L}*)?$/u,
 
+  email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/,
+
   password: /(?=.*\p{Lu})(?=.*\p{Ll})(?=.*\d)(?=.*[¿?¡!*.<>|@#~€¬"·$%&()={}\[\]\/\\_\-]).{8,}/u,
   upperCase: /(?=.*\p{Lu}).*/u,
   lowerCase: /(?=.*\p{Ll}).*/u,
@@ -295,7 +297,7 @@ const validateCardNum = function () {
   for (let i = 1; i < 5; i++)
     num += document.getElementById("tarjeta_num_" + i).value;
 
-  if (num !== "" || !validCardNum(num) && !luhn(num)) {
+  if (num === "" || !validCardNum(num) && !luhn(num)) {
     message = "El numero de la tarjeta no es válido.";
     console.log(message);
     document.getElementById("tarjeta_alert").innerHTML = message;

@@ -19,29 +19,29 @@
 
   <!-- CSS -->
   <link rel="stylesheet"
-        href="css/style.css">
+        href="styles/style.css">
   <link rel="stylesheet"
-        href="css/landing.css">
+        href="styles/landing.css">
 </head>
 
-<body class="vh-100">
+<body>
 
   <!-- ACCESSIBILITY BUTTONS -->
   <nav class="navbar sticky-top justify-content-center">
 
     <section class="d-flex text-bg-light">
       <button class="btn btn-accessibility">
-        <img src="icons/moon.svg"
+        <img src="./images/icons/moon.svg"
              alt="Modo noche">
         <span>Modo Noche</span>
       </button>
       <button class="btn btn-accessibility">
-        <img src="icons/plus.svg"
+        <img src="./images/icons/plus.svg"
              alt="Aumentar Letra">
         <span>Aumentar Letra</span>
       </button>
       <button class="btn btn-accessibility">
-        <img src="icons/minus.svg"
+        <img src="./images/icons/minus.svg"
              alt="Reducir Letra">
         <span>Reducir Letra</span>
       </button>
@@ -49,12 +49,13 @@
 
   </nav>
 
-  <main class="container">
-    <div class="row align-items-center">
+  <main>
+    <div class="row">
 
       <!-- IMAGE & TEXT -->
-      <article class="col-md-6 col-sm-12 text-center">
-        <img src="./img/Mock Book.png"
+      <article id="oscuro"
+               class="col-md-6 col-sm-12 text-center">
+        <img src="./images/Mock Book sin fondo.png"
              alt="Ebook con el logo de la empresa"
              class="img-fluid">
         <p>Apúntate a nuestro newsletter y recibe un cupón de 15% de descuento para tu primera compra.</p>
@@ -209,6 +210,7 @@
           </fieldset>
 
           <!-- TARJETA DE CRÉDITO -->
+
           <fieldset class="input-group mb-3"
                     id="tarjeta_credito">
             <legend class="input-group-text">Tarjeta de crédito</legend>
@@ -232,7 +234,6 @@
                    id="tarjeta_num_4"
                    maxlength="4"
                    class="form-control">
-
             <!-- TARJETA ALERT -->
             <p id="tarjeta_alert"
                class="text-danger">
@@ -259,18 +260,22 @@
           </fieldset>
 
           <!-- SUBMIT -->
-          <button type="submit"
-                  class="btn btn-primary mb-3">
-            Enviar</button>
 
-          <p id="submit_alert"
-             class="text-success">
+          <section class="d-flex justify-content-between">
+            <button type="submit"
+                    class="btn btn-primary">
+              Enviar formulario</button>
+
+            <input type="reset"
+                   value="Resetear valores"
+                   class="btn btn-secondary">
+          </section>
         </form>
       </article>
     </div>
   </main>
 
-  <script src="./js/landing.js"></script>
+  <script src="./scripts/landing.js"></script>
 
 </body>
 
