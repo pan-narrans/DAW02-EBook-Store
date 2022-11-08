@@ -29,18 +29,22 @@
   <!-- ACCESSIBILITY BUTTONS -->
   <nav class="navbar sticky-top justify-content-center">
 
-    <section class="d-flex text-bg-light">
-      <button class="btn btn-accessibility">
+    <section class="d-flex text-bg-light"
+             aria-label="Botones ">
+      <button class="btn btn-accessibility"
+              aria-label="Botón modo noche">
         <img src="./images/icons/moon.svg"
              alt="Modo noche">
         <span>Modo Noche</span>
       </button>
-      <button class="btn btn-accessibility">
+      <button class="btn btn-accessibility"
+              aria-label="Botón aumentar letra">
         <img src="./images/icons/plus.svg"
              alt="Aumentar Letra">
         <span>Aumentar Letra</span>
       </button>
-      <button class="btn btn-accessibility">
+      <button class="btn btn-accessibility"
+              aria-label="Botón reducir letra">
         <img src="./images/icons/minus.svg"
              alt="Reducir Letra">
         <span>Reducir Letra</span>
@@ -56,7 +60,8 @@
       <article id="oscuro"
                class="col-md-6 col-sm-12 text-center">
         <img src="./images/Mock Book sin fondo.png"
-             alt="Ebook con el logo de la empresa"
+             alt="Lector de libros electrónicos. En la pantalla está el logo de la tienda, 
+             la e en braille seguida de la palabra 'book'."
              class="img-fluid">
         <p>Apúntate a nuestro newsletter y recibe un cupón de 15% de descuento para tu primera compra.</p>
       </article>
@@ -66,7 +71,8 @@
         <h2 class="text-center"
             id="title">REGÍSTRATE</h2>
         <form action=""
-              id="landingForm">
+              id="landingForm"
+              aria-label="Formulario para darse de alta en la tienda.">
 
           <!-- USERNAME -->
           <fieldset class="mb-3 input-group">
@@ -263,12 +269,19 @@
 
           <section class="d-flex justify-content-between">
             <button type="submit"
+                    aria-label="Enviar formulario"
                     class="btn btn-primary">
               Enviar formulario</button>
 
             <input type="reset"
                    value="Resetear valores"
+                   aria-label="Resetear los valores del formulario"
                    class="btn btn-secondary">
+          </section>
+
+          <section class="my-3">
+            <p id="submit_alert"
+               class="text-success"></p>
           </section>
         </form>
       </article>
