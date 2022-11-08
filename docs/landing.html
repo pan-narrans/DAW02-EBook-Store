@@ -75,16 +75,18 @@
               aria-label="Formulario para darse de alta en la tienda.">
 
           <!-- USERNAME -->
-          <fieldset class="mb-3 input-group">
-            <label for="usuario"
-                   class="d-none"> Nombre de Usuario (Obligatorio)</label>
-            <input type="usuario"
-                   name="usuario"
-                   id="usuario"
-                   placeholder="Nombre de Usuario"
-                   class="form-control w-100"
-                   required>
-            <span></span>
+          <fieldset>
+            <div class=" input-group">
+              <label for="usuario"
+                     class="d-none"> Nombre de Usuario (Obligatorio)</label>
+              <input type="usuario"
+                     name="usuario"
+                     id="usuario"
+                     placeholder="Nombre de Usuario"
+                     class="form-control w-100"
+                     required>
+              <span></span>
+            </div>
 
             <!-- USERNAME ALERT -->
             <p id="username_alert"
@@ -92,25 +94,28 @@
           </fieldset>
 
           <!-- NAME & SURNAME -->
-          <fieldset class="mb-3 input-group">
-            <label for="nombre"
-                   class="d-none"> Nombre (Obligatorio)</label>
-            <input type="text"
-                   name="nombre"
-                   id="nombre"
-                   placeholder="Nombre"
-                   class="form-control"
-                   required>
-            <span></span>
-            <label for="apellidos"
-                   class="d-none"> Apellidos (Obligatorio)</label>
-            <input type="text"
-                   name="apellidos"
-                   id="apellidos"
-                   placeholder="Apellidos"
-                   class="form-control"
-                   required>
-            <span></span>
+          <fieldset>
+            <legend class="d-none">Nombre y Apellidos</legend>
+            <div class=" input-group">
+              <label for="nombre"
+                     class="d-none"> Nombre (Obligatorio)</label>
+              <input type="text"
+                     name="nombre"
+                     id="nombre"
+                     placeholder="Nombre"
+                     class="form-control"
+                     required>
+              <span></span>
+              <label for="apellidos"
+                     class="d-none"> Apellidos (Obligatorio)</label>
+              <input type="text"
+                     name="apellidos"
+                     id="apellidos"
+                     placeholder="Apellidos"
+                     class="form-control"
+                     required>
+              <span></span>
+            </div>
 
             <!-- NAME & SURNAME ALERT -->
             <p id="nombre_alert"
@@ -120,40 +125,47 @@
           </fieldset>
 
           <!-- EMAIL -->
-          <fieldset class="mb-3 input-group">
-            <label for="email"
-                   class="d-none"> E-mail (Obligatorio)</label>
-            <input type="email"
-                   name="email"
-                   id="email"
-                   placeholder="E-mail"
-                   class="form-control"
-                   required>
-            <span></span>
+          <fieldset>
+            <div class=" input-group">
+              <label for="email"
+                     class="d-none"> E-mail (Obligatorio)</label>
+              <input type="email"
+                     name="email"
+                     id="email"
+                     placeholder="E-mail"
+                     class="form-control"
+                     required>
+              <span></span>
+            </div>
 
-            <!-- COMPROBACIONES CORREO -->
+            <!-- NAME & SURNAME ALERT -->
+            <p id="email_alert"
+               class="text-danger">
           </fieldset>
 
           <!-- PASSWORD -->
-          <fieldset class="mb-3 input-group">
-            <label for="password"
-                   class="d-none"> Contraseña (Obligatorio)</label>
-            <input type="password"
-                   name="password_1"
-                   id="password_1"
-                   placeholder="Contraseña"
-                   class="form-control"
-                   required>
-            <span></span>
-            <label for="password-2"
-                   class="d-none"> Contraseña (Obligatorio)</label>
-            <input type="password"
-                   name="password_2"
-                   id="password_2"
-                   placeholder="Repetir Contraseña"
-                   class="form-control"
-                   required>
-            <span></span>
+          <fieldset>
+            <legend class="d-none">Contraseña</legend>
+            <div class=" input-group">
+              <label for="password"
+                     class="d-none"> Contraseña (Obligatorio)</label>
+              <input type="password"
+                     name="password_1"
+                     id="password_1"
+                     placeholder="Contraseña"
+                     class="form-control"
+                     required>
+              <span></span>
+              <label for="password-2"
+                     class="d-none"> Repetir Contraseña (Obligatorio)</label>
+              <input type="password"
+                     name="password_2"
+                     id="password_2"
+                     placeholder="Repetir Contraseña"
+                     class="form-control"
+                     required>
+              <span></span>
+            </div>
 
             <!-- PASSWORD ALERTS -->
             <div id="password_alerts">
@@ -186,13 +198,15 @@
           </fieldset>
 
           <!-- EDAD -->
-          <fieldset class="mb-3 input-group">
-            <label for="fecha_nacimiento"
-                   class="input-group-text">Fecha de nacimiento: </label>
-            <input type="date"
-                   class="form-control"
-                   name="fecha_nacimiento"
-                   id="fecha_nacimiento">
+          <fieldset>
+            <div class="input-group">
+              <label for="fecha_nacimiento"
+                     class="input-group-text">Fecha de nacimiento: </label>
+              <input type="date"
+                     class="form-control"
+                     name="fecha_nacimiento"
+                     id="fecha_nacimiento">
+            </div>
 
             <!-- EDAD ALERT -->
             <p id="fecha_alert"
@@ -217,29 +231,31 @@
 
           <!-- TARJETA DE CRÉDITO -->
 
-          <fieldset class="input-group mb-3"
-                    id="tarjeta_credito">
-            <legend class="input-group-text">Tarjeta de crédito</legend>
-            <input type="text"
-                   name="tarjeta_num_1"
-                   id="tarjeta_num_1"
-                   maxlength="4"
-                   class="form-control">
-            <input type="text"
-                   name="tarjeta_num_2"
-                   id="tarjeta_num_2"
-                   maxlength="4"
-                   class="form-control">
-            <input type="text"
-                   name="tarjeta_num_3"
-                   id="tarjeta_num_3"
-                   maxlength="4"
-                   class="form-control">
-            <input type="text"
-                   name="tarjeta_num_4"
-                   id="tarjeta_num_4"
-                   maxlength="4"
-                   class="form-control">
+          <fieldset id="tarjeta_credito">
+            <div class="input-group">
+              <legend class="input-group-text">Tarjeta de crédito</legend>
+              <input type="text"
+                     name="tarjeta_num_1"
+                     id="tarjeta_num_1"
+                     maxlength="4"
+                     class="form-control">
+              <input type="text"
+                     name="tarjeta_num_2"
+                     id="tarjeta_num_2"
+                     maxlength="4"
+                     class="form-control">
+              <input type="text"
+                     name="tarjeta_num_3"
+                     id="tarjeta_num_3"
+                     maxlength="4"
+                     class="form-control">
+              <input type="text"
+                     name="tarjeta_num_4"
+                     id="tarjeta_num_4"
+                     maxlength="4"
+                     class="form-control">
+            </div>
+
             <!-- TARJETA ALERT -->
             <p id="tarjeta_alert"
                class="text-danger">

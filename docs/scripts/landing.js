@@ -5,6 +5,8 @@ const username = document.getElementById("usuario");
 const name = document.getElementById("nombre");
 const surname = document.getElementById("apellidos");
 
+const email = document.getElementById("email");
+
 const pass_1 = document.getElementById("password_1");
 const pass_2 = document.getElementById("password_2");
 
@@ -83,7 +85,7 @@ const regEx = {
   username: /^[\p{L}\d_-]{3,20}$/u,
   name: /^(?=.{2,60}$)\p{L}*(\s\p{L}*)?$/u,
 
-  email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/,
+  email: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
 
   password: /(?=.*\p{Lu})(?=.*\p{Ll})(?=.*\d)(?=.*[¿?¡!*.<>|@#~€¬"·$%&()={}\[\]\/\\_\-]).{8,}/u,
   upperCase: /(?=.*\p{Lu}).*/u,
@@ -189,6 +191,21 @@ const validateSurname = function () {
   }
 }
 
+const validateEmail = function () {
+  // Esconder el alert
+  document.getElementById("email_alert").innerHTML = "";
+
+  if (!validSurname(surname.value)) {
+    let message = "Email no valido.";
+    console.log(message)
+    document.getElementById("email_alert").innerHTML = message;
+    return false;
+  } else {
+    console.log("Email válido.");
+    return true;
+  }
+}
+
 
 /* PASSWORD VALIDATION */
 const validatePassword = function () {
@@ -276,19 +293,6 @@ const validateBirth = function () {
   }
 }
 
-// TODO
-const validateCardPart = function (e) {
-  // document.getElementById("tarjeta_alert").innerHTML = "";
-
-  // if (!validCardNum(e.target.value)) {
-  //   let message = "Uno de los campos no es válido.";
-  //   console.log(message)
-  //   document.getElementById("tarjeta_alert").innerHTML = message;
-  // } else {
-  //   console.log("La tarjeta de crédito es válida.");
-  // }
-}
-
 const validateCardNum = function () {
   document.getElementById("tarjeta_alert").innerHTML = "";
 
@@ -313,7 +317,7 @@ const showHideCard = function () {
   if (address.value == "" || countrySelect.options[countrySelect.selectedIndex].disabled)
     card.style.display = "none";
   else
-    card.style.display = "flex";
+    card.style.display = "block";
 }
 
 //#region Countries
@@ -404,6 +408,8 @@ form.addEventListener('focusout', trim);
 username.addEventListener('blur', validateUsername);
 name.addEventListener('blur', validateName);
 surname.addEventListener('blur', validateSurname);
+
+email.addEventListener('blur', validateEmail);
 
 pass_1.addEventListener('blur', validatePassword);
 pass_2.addEventListener('blur', passwordMatch);
