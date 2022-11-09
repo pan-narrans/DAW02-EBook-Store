@@ -17,7 +17,8 @@ div.row {
 
 article {
   margin: 0% 0% 0%;
-  padding-top: 3%;
+  padding-top: 2.1%;
+  padding-bottom: 2.1%;
 }
 
 .row>* {
@@ -43,6 +44,11 @@ legend {
 @media (max-width: 800px) {
   body {
     margin: 0 10%;
+  }
+
+  .row>* {
+    padding-left: 1%;
+    padding-right: 1%;
   }
 
   #oscuro {
