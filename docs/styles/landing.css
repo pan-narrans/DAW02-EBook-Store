@@ -17,8 +17,9 @@ div.row {
 
 article {
   margin: 0% 0% 0%;
-  padding-top: 2.1%;
-  padding-bottom: 2.1%;
+  /* padding-top: 2.1%;
+  padding-bottom: 2.1%; */
+  height: 100%;
 }
 
 .row>* {
