@@ -419,5 +419,5 @@ birth.addEventListener('blur', validateBirth);
 address.addEventListener('blur', showHideCard);
 countrySelect.addEventListener('change', showHideCard);
 
-card.addEventListener('focusout', validateCardPart);
+//card.addEventListener('focusout', validateCardPart);
 card_4.addEventListener('blur', validateCardNum);
