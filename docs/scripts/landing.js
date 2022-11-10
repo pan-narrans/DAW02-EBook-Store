@@ -2,7 +2,7 @@
 const form = document.forms["landingForm"];
 
 const username = document.getElementById("usuario");
-const name = document.getElementById("nombre");
+const nombre = document.getElementById("nombre");
 const surname = document.getElementById("apellidos");
 
 const email = document.getElementById("email");
@@ -32,7 +32,7 @@ const validate = function (e) {
   // Validate name
   if (!validateName()) {
     console.log("Problema con nombre.");
-    name.focus();
+    nombre.focus();
     return false;
   }
 
@@ -165,7 +165,7 @@ const validateName = function () {
   // Esconder el alert
   document.getElementById("nombre_alert").innerHTML = "";
 
-  if (!validName(name.value)) {
+  if (!validName(nombre.value)) {
     let message = "Un nombre solo puede contener letras, un máximo de dos palabras y 60 caracteres.";
     console.log(message);
     document.getElementById("nombre_alert").innerHTML = message;
@@ -406,7 +406,7 @@ form.addEventListener('submit', e => validate(e));
 form.addEventListener('focusout', trim);
 
 username.addEventListener('blur', validateUsername);
-name.addEventListener('blur', validateName);
+nombre.addEventListener('blur', validateName);
 surname.addEventListener('blur', validateSurname);
 
 email.addEventListener('blur', validateEmail);
