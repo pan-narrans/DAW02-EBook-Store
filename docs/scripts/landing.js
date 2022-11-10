@@ -113,6 +113,11 @@ const validPassword = function (str) {
   return regEx.password.test(str);
 }
 
+const validEmail = function (str) {
+  return regEx.email.test(str);
+}
+
+
 const validBirth = function (date) {
   const birth = new Date(date);
   const now = new Date();
@@ -195,7 +200,7 @@ const validateEmail = function () {
   // Esconder el alert
   document.getElementById("email_alert").innerHTML = "";
 
-  if (!validSurname(surname.value)) {
+  if (!validEmail(email.value)) {
     let message = "Email no valido.";
     console.log(message)
     document.getElementById("email_alert").innerHTML = message;
