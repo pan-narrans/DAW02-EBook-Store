@@ -49,8 +49,21 @@ body{
         margin: 0;
       }
 
+      .btn-primary{
+        --bs-btn-bg: #A33939;
+        --bs-btn-border-color: #A33939;
+        --bs-btn-hover-bg: #6c757d;
+        --bs-btn-hover-border-color: #6c757d;
+      }
+
+      .form-check{
+        accent-color: #A33939;
+      }
+
 @media (max-width: 800px) {
-  body {
+
+  main{
+    height: auto;
     margin: 0 10%;
   }
 
@@ -78,4 +91,12 @@ body{
       .text-center {
         margin-bottom: 10%;
       }
+
+    #franja-movil{
+      background-color: #232121;
+      height: 40px;
+      width: 100%;
+      margin: 0%;
+      padding: 0%;
+    }
 }
