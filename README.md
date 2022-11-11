@@ -1,6 +1,6 @@
 # DAW02-EBook-Store
 
-Integrantes: Izan Arraez, Pablo Casanova, Cristina Pascua y Alejandro Pérez
+Integrantes: Izan Arraez (izanarraez), Pablo Casanova (kassito), Cristina Pascua (crispascu) y Alejandro Pérez (pan_narrans).
 
 Repositorio para el proyecto de 2º de DAW: tienda online de libros electrónicos.
 

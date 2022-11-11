@@ -63,22 +63,22 @@
       <article id="oscuro"
                class="col-md-6 col-sm-12 text-center">
         <img src="./images/Mock Book sin fondo.png"
-             alt="Lector de libros electrónicos. En la pantalla está el logo de la tienda, 
-             la e en braille seguida de la palabra 'book'."
+             alt="Libro electrónico con el logo, la e en braille seguida de la palabra 'book'."
              class="img-fluid">
         <p id="letraOscuro">Regístrate en el formulario y recibe un cupón de 15% de descuento para tu primera compra.</p>
       </article>
 
       <!-- FORM -->
       <article class="col-md-6 col-sm-12">
-        <h2 class="text-center"
-            id="title">REGÍSTRATE</h2>
+        <h1 class="text-center"
+            id="title">REGÍSTRATE</h1>
         <form action=""
               id="landingForm"
               aria-label="Formulario para darse de alta en la tienda.">
 
           <!-- USERNAME -->
           <fieldset>
+            <legend class="d-none">Nombre de usuario</legend>
             <div class=" input-group">
               <label for="usuario"
                      class="d-none"> Nombre de Usuario (Obligatorio)</label>
@@ -129,6 +129,7 @@
 
           <!-- EMAIL -->
           <fieldset>
+            <legend class="d-none">E-mail</legend>
             <div class=" input-group">
               <label for="email"
                      class="d-none"> E-mail (Obligatorio)</label>
@@ -150,7 +151,7 @@
           <fieldset>
             <legend class="d-none">Contraseña</legend>
             <div class=" input-group">
-              <label for="password"
+              <label for="password_1"
                      class="d-none"> Contraseña (Obligatorio)</label>
               <input type="password"
                      name="password_1"
@@ -159,7 +160,7 @@
                      class="form-control"
                      required>
               <span></span>
-              <label for="password-2"
+              <label for="password_2"
                      class="d-none"> Repetir Contraseña (Obligatorio)</label>
               <input type="password"
                      name="password_2"
@@ -202,6 +203,7 @@
 
           <!-- EDAD -->
           <fieldset>
+            <legend class="d-none">Fecha de nacimiento</legend>
             <div class="input-group">
               <label for="fecha_nacimiento"
                      class="input-group-text">Cumpleaños: </label>
@@ -218,6 +220,7 @@
 
           <!-- DIRECCIÓN -->
           <fieldset class="mb-3 input-group">
+            <legend class="d-none">Dirección</legend>
             <label for="direccion"
                    class="input-group-text">Dirección</label>
             <input type="text"
@@ -235,23 +238,28 @@
           <!-- TARJETA DE CRÉDITO -->
 
           <fieldset id="tarjeta_credito">
+            <legend class="d-none">Tarjeta de crédito</legend>
             <div class="input-group">
               <legend class="input-group-text">Tarjeta</legend>
+              <label for="tarjeta_num_1" class="d-none">Primeros 4 numeros</label>
               <input type="text"
                      name="tarjeta_num_1"
                      id="tarjeta_num_1"
                      maxlength="4"
                      class="form-control">
+              <label for="tarjeta_num_2" class="d-none">Segundos 4 numeros</label>
               <input type="text"
                      name="tarjeta_num_2"
                      id="tarjeta_num_2"
                      maxlength="4"
                      class="form-control">
+              <label for="tarjeta_num_3" class="d-none">Terceros 4 numeros</label>
               <input type="text"
                      name="tarjeta_num_3"
                      id="tarjeta_num_3"
                      maxlength="4"
                      class="form-control">
+              <label for="tarjeta_num_4" class="d-none">Cuartos 4 numeros</label>
               <input type="text"
                      name="tarjeta_num_4"
                      id="tarjeta_num_4"
@@ -266,6 +274,7 @@
 
           <!-- CHECKBOXES -->
           <fieldset class="mb-3">
+            <legend class="d-none">Notificaciones y suscripción</legend>
             <!-- NOTIFICACIONES -->
             <label class="form-check">
               <input type="checkbox"

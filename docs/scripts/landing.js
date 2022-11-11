@@ -74,7 +74,7 @@ const validate = function (e) {
     return false;
   }
 
-  console.log("Enviando el formulario.")
+  console.log("Enviando el formulario.");
   document.getElementById("submit_alert").innerHTML = "Formulario enviado correctamente.";
   //form.submit();
 }
@@ -132,7 +132,7 @@ const validCardNum = function (str) {
 }
 
 const luhn = function (cardNum) {
-  cardNum = String(cardNum).split('').reverse().map(x => parseInt(x));
+  cardNum = String(cardNum).split("").reverse().map(x => parseInt(x));
   let sum = 0;
   let parity = cardNum.length % 2;
 
@@ -268,7 +268,7 @@ const passwordShowCorrections = function (str) {
     console.log(message);
     document.getElementById("password_alert_symbol").innerHTML = message;
   }
-}
+};
 
 const passwordMatch = function () {
   document.getElementById("password_alert_match").innerHTML = "";
@@ -405,24 +405,24 @@ const trim = function (e) {
 }
 
 // Event Listeners
-window.addEventListener('load', init)
+window.addEventListener("load", init);
 
-form.addEventListener('submit', e => validate(e));
-form.addEventListener('focusout', trim);
+form.addEventListener("submit", e => validate(e));
+form.addEventListener("focusout", trim);
 
-username.addEventListener('blur', validateUsername);
-nombre.addEventListener('blur', validateName);
-surname.addEventListener('blur', validateSurname);
+username.addEventListener("blur", validateUsername);
+nombre.addEventListener("blur", validateName);
+surname.addEventListener("blur", validateSurname);
 
-email.addEventListener('blur', validateEmail);
+email.addEventListener("blur", validateEmail);
 
-pass_1.addEventListener('blur', validatePassword);
-pass_2.addEventListener('blur', passwordMatch);
+pass_1.addEventListener("blur", validatePassword);
+pass_2.addEventListener("blur", passwordMatch);
 
-birth.addEventListener('blur', validateBirth);
+birth.addEventListener("blur", validateBirth);
 
-address.addEventListener('blur', showHideCard);
-countrySelect.addEventListener('change', showHideCard);
+address.addEventListener("blur", showHideCard);
+countrySelect.addEventListener("change", showHideCard);
 
-//card.addEventListener('focusout', validateCardPart);
-card_4.addEventListener('blur', validateCardNum);
+//card.addEventListener("focusout", validateCardPart);
+card_4.addEventListener("blur", validateCardNum);
