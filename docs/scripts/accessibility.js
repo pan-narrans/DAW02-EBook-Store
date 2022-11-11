@@ -19,7 +19,7 @@ const decreaseFontAll = function () {
 }
 
 const modoNoche = function () {
-  console.log("modonoche...");
+  console.log("Modo noche...");
   noche(document.body);
 }
 
