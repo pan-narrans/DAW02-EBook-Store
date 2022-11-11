@@ -659,20 +659,6 @@
       ],
       "value": ""
     }, {
-      "id": "7c3acdd6-bc36-4eeb-bee3-974921a439e3",
-      "comment": "",
-      "command": "click",
-      "target": "id=fecha_nacimiento",
-      "targets": [
-        ["id=fecha_nacimiento", "id"],
-        ["name=fecha_nacimiento", "name"],
-        ["css=#fecha_nacimiento", "css:finder"],
-        ["xpath=//input[@id='fecha_nacimiento']", "xpath:attributes"],
-        ["xpath=//form[@id='landingForm']/fieldset[6]/input", "xpath:idRelative"],
-        ["xpath=//fieldset[6]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "bb2046da-5a52-4606-ae6a-b22b5f34c3bb",
       "comment": "",
       "command": "click",
@@ -749,20 +735,6 @@
       "target": "id=pais",
       "targets": [],
       "value": "label=Spain"
-    }, {
-      "id": "9d9e8219-6d2a-4c57-a91b-d0e0f00ec091",
-      "comment": "",
-      "command": "click",
-      "target": "id=tarjeta_num_1",
-      "targets": [
-        ["id=tarjeta_num_1", "id"],
-        ["name=tarjeta_num_1", "name"],
-        ["css=#tarjeta_num_1", "css:finder"],
-        ["xpath=//input[@id='tarjeta_num_1']", "xpath:attributes"],
-        ["xpath=//fieldset[@id='tarjeta_credito']/input", "xpath:idRelative"],
-        ["xpath=//fieldset[8]/input", "xpath:position"]
-      ],
-      "value": ""
     }, {
       "id": "7d9ec1b9-eeda-492b-8b67-6301b6a42fc8",
       "comment": "",
@@ -915,6 +887,362 @@
         ["xpath=//p[contains(.,'Formulario enviado correctamente.')]", "xpath:innerText"]
       ],
       "value": "Formulario enviado correctamente."
+    }]
+  }, {
+    "id": "e9d227ea-4cc7-4080-9822-16e7b11a9f1c",
+    "name": "Test Password Match",
+    "commands": [{
+      "id": "29dd3753-1349-4089-8e90-6b5dab48d4b9",
+      "comment": "",
+      "command": "open",
+      "target": "https://pan-narrans.github.io/DAW02-EBook-Store/landing.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "389cbe83-dd7a-47c9-86b7-fac3ae8b4f91",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "694x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bc9bb81c-62b6-4716-8453-23406590bc4a",
+      "comment": "",
+      "command": "type",
+      "target": "id=password_1",
+      "targets": [
+        ["id=password_1", "id"],
+        ["name=password_1", "name"],
+        ["css=#password_1", "css:finder"],
+        ["xpath=//input[@id='password_1']", "xpath:attributes"],
+        ["xpath=//form[@id='landingForm']/fieldset[4]/div/input", "xpath:idRelative"],
+        ["xpath=//fieldset[4]/div/input", "xpath:position"]
+      ],
+      "value": "aaAA12!\""
+    }, {
+      "id": "188fa6c0-a862-418f-99d4-fc42b4dd3be0",
+      "comment": "Passwords don't match",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d5f49dea-3050-403b-b77d-3caa53acf4b0",
+      "comment": "",
+      "command": "type",
+      "target": "id=password_2",
+      "targets": [
+        ["id=password_2", "id"],
+        ["name=password_2", "name"],
+        ["css=#password_2", "css:finder"],
+        ["xpath=//input[@id='password_2']", "xpath:attributes"],
+        ["xpath=//form[@id='landingForm']/fieldset[4]/div/input[2]", "xpath:idRelative"],
+        ["xpath=//fieldset[4]/div/input[2]", "xpath:position"]
+      ],
+      "value": "aaAA12!\"A"
+    }, {
+      "id": "93a113f2-6338-48db-8564-05268a4eed0b",
+      "comment": "",
+      "command": "click",
+      "target": "id=password_1",
+      "targets": [
+        ["id=password_1", "id"],
+        ["name=password_1", "name"],
+        ["css=#password_1", "css:finder"],
+        ["xpath=//input[@id='password_1']", "xpath:attributes"],
+        ["xpath=//form[@id='landingForm']/fieldset[4]/div/input", "xpath:idRelative"],
+        ["xpath=//fieldset[4]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9bd95155-6f2c-4144-995c-4b6b92f3d42e",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=password_alert_match",
+      "targets": [
+        ["id=password_alert_match", "id"],
+        ["css=#password_alert_match", "css:finder"],
+        ["xpath=//p[@id='password_alert_match']", "xpath:attributes"],
+        ["xpath=//div[@id='password_alerts']/p", "xpath:idRelative"],
+        ["xpath=//div[2]/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Las contraseñas no coinciden.')]", "xpath:innerText"]
+      ],
+      "value": "Las contraseñas no coinciden."
+    }, {
+      "id": "a1fec964-bbb9-42b8-bfd2-25630a4cd129",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=password_alert_match",
+      "targets": [],
+      "value": "Las contraseñas no coinciden."
+    }, {
+      "id": "4838269d-4763-4a86-8a51-635cb404ec27",
+      "comment": "Passwords match",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "02558c8f-8b95-4685-a5fb-70886cdf63d6",
+      "comment": "",
+      "command": "type",
+      "target": "id=password_2",
+      "targets": [
+        ["id=password_2", "id"],
+        ["name=password_2", "name"],
+        ["css=#password_2", "css:finder"],
+        ["xpath=//input[@id='password_2']", "xpath:attributes"],
+        ["xpath=//form[@id='landingForm']/fieldset[4]/div/input[2]", "xpath:idRelative"],
+        ["xpath=//fieldset[4]/div/input[2]", "xpath:position"]
+      ],
+      "value": "aaAA12!\""
+    }, {
+      "id": "499626a3-c68a-4309-a4c3-c92a40c6d2e8",
+      "comment": "",
+      "command": "click",
+      "target": "id=password_1",
+      "targets": [
+        ["id=password_1", "id"],
+        ["name=password_1", "name"],
+        ["css=#password_1", "css:finder"],
+        ["xpath=//input[@id='password_1']", "xpath:attributes"],
+        ["xpath=//form[@id='landingForm']/fieldset[4]/div/input", "xpath:idRelative"],
+        ["xpath=//fieldset[4]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "52c83667-f9f0-4ad3-92be-ca1516d2c515",
+    "name": "Test Password",
+    "commands": [{
+      "id": "ff429046-1f75-414a-bfd6-ea28bca58e74",
+      "comment": "",
+      "command": "open",
+      "target": "https://pan-narrans.github.io/DAW02-EBook-Store/landing.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8cc4126c-9040-44fd-8cd8-769b8dc132b9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "694x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c7168d3f-b251-4e54-99ed-51618a3a3a63",
+      "comment": "",
+      "command": "type",
+      "target": "id=password_1",
+      "targets": [
+        ["id=password_1", "id"],
+        ["name=password_1", "name"],
+        ["css=#password_1", "css:finder"],
+        ["xpath=//input[@id='password_1']", "xpath:attributes"],
+        ["xpath=//form[@id='landingForm']/fieldset[4]/div/input", "xpath:idRelative"],
+        ["xpath=//fieldset[4]/div/input", "xpath:position"]
+      ],
+      "value": "a"
+    }, {
+      "id": "884f6edc-dafd-43c6-b6ba-dcee11ad6941",
+      "comment": "",
+      "command": "click",
+      "target": "id=password_2",
+      "targets": [
+        ["id=password_2", "id"],
+        ["name=password_2", "name"],
+        ["css=#password_2", "css:finder"],
+        ["xpath=//input[@id='password_2']", "xpath:attributes"],
+        ["xpath=//form[@id='landingForm']/fieldset[4]/div/input[2]", "xpath:idRelative"],
+        ["xpath=//fieldset[4]/div/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "20180b6c-225d-44c9-9b4b-b5ab4fad813a",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=password_alert_length",
+      "targets": [
+        ["id=password_alert_length", "id"],
+        ["css=#password_alert_length", "css:finder"],
+        ["xpath=//p[@id='password_alert_length']", "xpath:attributes"],
+        ["xpath=//div[@id='password_alerts']/p[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/p[2]", "xpath:position"],
+        ["xpath=//p[contains(.,'La contraseña tiene que tener un mínimo de 8 caracteres.')]", "xpath:innerText"]
+      ],
+      "value": "La contraseña tiene que tener un mínimo de 8 caracteres."
+    }, {
+      "id": "a31f1843-fae6-42ed-b8d0-921138ecee2f",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=password_alert_uppercase",
+      "targets": [
+        ["id=password_alert_uppercase", "id"],
+        ["css=#password_alert_uppercase", "css:finder"],
+        ["xpath=//p[@id='password_alert_uppercase']", "xpath:attributes"],
+        ["xpath=//div[@id='password_alerts']/p[3]", "xpath:idRelative"],
+        ["xpath=//p[3]", "xpath:position"],
+        ["xpath=//p[contains(.,'La contraseña tiene que contener una letra mayúscula.')]", "xpath:innerText"]
+      ],
+      "value": "La contraseña tiene que contener una letra mayúscula."
+    }, {
+      "id": "b4fcc07a-7069-4033-8c48-08f3b6fe5273",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=password_alert_lowercase",
+      "targets": [
+        ["id=password_alert_lowercase", "id"],
+        ["css=#password_alert_lowercase", "css:finder"],
+        ["xpath=//p[@id='password_alert_lowercase']", "xpath:attributes"],
+        ["xpath=//div[@id='password_alerts']/p[4]", "xpath:idRelative"],
+        ["xpath=//p[4]", "xpath:position"],
+        ["xpath=//p[contains(.,'La contraseña tiene que contener una letra minúscula.')]", "xpath:innerText"]
+      ],
+      "value": "La contraseña tiene que contener una letra minúscula."
+    }, {
+      "id": "16256f8b-9e41-4efa-9e65-6bc65920c5a4",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=password_alert_number",
+      "targets": [
+        ["id=password_alert_number", "id"],
+        ["css=#password_alert_number", "css:finder"],
+        ["xpath=//p[@id='password_alert_number']", "xpath:attributes"],
+        ["xpath=//div[@id='password_alerts']/p[5]", "xpath:idRelative"],
+        ["xpath=//p[5]", "xpath:position"],
+        ["xpath=//p[contains(.,'La contraseña tiene que contener un número.')]", "xpath:innerText"]
+      ],
+      "value": "La contraseña tiene que contener un número."
+    }, {
+      "id": "d98b0f2b-e822-4413-9917-e3e85433b7a7",
+      "comment": "",
+      "command": "verifyText",
+      "target": "id=password_alert_symbol",
+      "targets": [
+        ["id=password_alert_symbol", "id"],
+        ["css=#password_alert_symbol", "css:finder"],
+        ["xpath=//p[@id='password_alert_symbol']", "xpath:attributes"],
+        ["xpath=//div[@id='password_alerts']/p[6]", "xpath:idRelative"],
+        ["xpath=//p[6]", "xpath:position"],
+        ["xpath=//p[contains(.,'La contraseña tiene que contener uno de estos símbolos: ¿?¡!*.<>|@#~€¬\"·$ %& ()={}[]/\\.')]", "xpath:innerText"]
+      ],
+      "value": "La contraseña tiene que contener uno de estos símbolos: ¿?¡!*.<>|@#~€¬\"·$ %& ()={}[]/\\."
+    }]
+  }, {
+    "id": "441e768f-ab3c-47a4-a240-daadfc34cd39",
+    "name": "Test Card",
+    "commands": [{
+      "id": "5c9a7548-e2fb-4009-b3b1-9476c6882e3a",
+      "comment": "",
+      "command": "open",
+      "target": "https://pan-narrans.github.io/DAW02-EBook-Store/landing.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "59879769-78fa-4a64-9e58-94c353affc1d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "694x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5f8aa268-e647-4647-bff1-3aec7a886a57",
+      "comment": "",
+      "command": "type",
+      "target": "id=direccion",
+      "targets": [
+        ["id=direccion", "id"],
+        ["name=direccion", "name"],
+        ["css=#direccion", "css:finder"],
+        ["xpath=//input[@id='direccion']", "xpath:attributes"],
+        ["xpath=//form[@id='landingForm']/fieldset[7]/input", "xpath:idRelative"],
+        ["xpath=//fieldset[7]/input", "xpath:position"]
+      ],
+      "value": "paris"
+    }, {
+      "id": "d25cd502-4c68-4fb1-ab19-8461a6cc842d",
+      "comment": "",
+      "command": "storeValue",
+      "target": "id=direccion",
+      "targets": [
+        ["id=direccion", "id"],
+        ["name=direccion", "name"],
+        ["css=#direccion", "css:finder"],
+        ["xpath=//input[@id='direccion']", "xpath:attributes"],
+        ["xpath=//form[@id='landingForm']/fieldset[7]/input", "xpath:idRelative"],
+        ["xpath=//fieldset[7]/input", "xpath:position"]
+      ],
+      "value": "calle"
+    }, {
+      "id": "a8ee4880-bf3e-45df-a8e7-183fc3e1d8d0",
+      "comment": "",
+      "command": "select",
+      "target": "id=pais",
+      "targets": [],
+      "value": "label=Greece"
+    }, {
+      "id": "2dcde208-8d9c-4d60-942a-26db9576a84c",
+      "comment": "",
+      "command": "if",
+      "target": "${calle} != \"\"",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "177fcdcc-97b9-427d-ae5c-9e50e22babed",
+      "comment": "",
+      "command": "if",
+      "target": "id=pais != \"\"",
+      "targets": [
+        ["id=pais", "id"],
+        ["name=pais", "name"],
+        ["css=#pais", "css:finder"],
+        ["xpath=//select[@id='pais']", "xpath:attributes"],
+        ["xpath=//form[@id='landingForm']/fieldset[7]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "14f2fa55-748e-4508-97bf-1e56bd5426aa",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=#tarjeta_credito .input-group-text",
+      "targets": [
+        ["css=#tarjeta_credito .input-group-text", "css:finder"],
+        ["xpath=//fieldset[@id='tarjeta_credito']/div/legend", "xpath:idRelative"],
+        ["xpath=//div/legend", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ec46ebd-b8cd-4216-8093-387f7947b991",
+      "comment": "",
+      "command": "else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f3f3892f-ce82-4cae-89bf-8243e3b79bd1",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=#tarjeta_credito .input-group-text",
+      "targets": [
+        ["css=#tarjeta_credito .input-group-text", "css:finder"],
+        ["xpath=//fieldset[@id='tarjeta_credito']/div/legend", "xpath:idRelative"],
+        ["xpath=//div/legend", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "93ec4e2e-3038-4b6d-bd1b-838fe912b697",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0276104c-ec46-41d1-ae31-1e932910f3ab",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
     }]
   }],
   "suites": [{
