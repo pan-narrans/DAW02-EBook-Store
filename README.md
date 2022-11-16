@@ -8,6 +8,9 @@ Repositorio para el proyecto de 2º de DAW: tienda online de libros electrónico
 
 - Para visualizar [la landing page haz click aquí](https://pan-narrans.github.io/DAW02-EBook-Store/landing.html).
 
-- Para visualizar [la memoria haz click aquí](./Memoria/).
+- Para visualizar [la memoria de cliente haz click aquí](./Memoria/).
+
+- Para visualizar [la memoria completa haz click aquí](https://docs.google.com/document/d/e/2PACX-1vTGSgblkrsXgstm5RCAh1Q8NlFGnaSQO66ZzPrZYR3UTA2UEkPN7rt74pG-_urbMujooBUncVlxrYMs/pub).
+
 
 - Para ver los tests meterse en la carpeta `\Selenium Tests` y seguir las indicaciones ahí presentes.
