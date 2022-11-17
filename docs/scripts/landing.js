@@ -20,25 +20,25 @@ const card_4 = document.getElementById("tarjeta_num_4");
 
 const validate = function (e) {
   e.preventDefault();
-  console.log("Le has dado a submit.")
+  // console.log("Le has dado a submit.")
 
   // Validate username
   if (!validateUsername()) {
-    console.log("Problema con nombre de usuario.");
+    // console.log("Problema con nombre de usuario.");
     username.focus();
     return false;
   }
 
   // Validate name
   if (!validateName()) {
-    console.log("Problema con nombre.");
+    // console.log("Problema con nombre.");
     nombre.focus();
     return false;
   }
 
   // Validate surname
   if (!validateSurname()) {
-    console.log("Problema con apellido.");
+    // console.log("Problema con apellido.");
     surname.focus();
     return false;
   }
@@ -48,33 +48,33 @@ const validate = function (e) {
 
   // Validate password
   if (!validatePassword()) {
-    console.log("Problema con contraseña.");
+    // console.log("Problema con contraseña.");
     pass_1.focus();
     return false;
   }
 
   // Passwords match
   if (!passwordMatch()) {
-    console.log("Problema con contraseña 2.");
+    // console.log("Problema con contraseña 2.");
     pass_2.focus();
     return false;
   }
 
   // Validate age
   if (!validateBirth()) {
-    console.log("Problema con fecha de nacimiento.");
+    // console.log("Problema con fecha de nacimiento.");
     birth.focus();
     return false;
   }
 
   // Validate credit card number
   if (card.style.visibility != "none" && !validateCardNum()) {
-    console.log("Problema con tarjeta");
+    // console.log("Problema con tarjeta");
     card.focus();
     return false;
   }
 
-  console.log("Enviando el formulario.");
+  // console.log("Enviando el formulario.");
   document.getElementById("submit_alert").innerHTML = "Formulario enviado correctamente.";
   //form.submit();
 }
@@ -157,11 +157,11 @@ const validateUsername = function () {
 
   if (!validUsername(username.value)) {
     let message = "El nombre de usuario tiene que tener entre 3 y 20 caracteres.";
-    console.log(message);
+    // console.log(message);
     document.getElementById("username_alert").innerHTML = message;
     return false;
   } else {
-    console.log("Nombre de usuario válido.");
+    // console.log("Nombre de usuario válido.");
     return true;
   }
 }
@@ -172,11 +172,11 @@ const validateName = function () {
 
   if (!validName(nombre.value)) {
     let message = "Un nombre solo puede contener letras, un máximo de dos palabras y 60 caracteres.";
-    console.log(message);
+    // console.log(message);
     document.getElementById("nombre_alert").innerHTML = message;
     return false;
   } else {
-    console.log("Nombre válido.");
+    // console.log("Nombre válido.");
     return true;
   }
 }
@@ -187,11 +187,11 @@ const validateSurname = function () {
 
   if (!validSurname(surname.value)) {
     let message = "Un apellido solo puede contener letras, un máximo de dos palabras y 60 caracteres.";
-    console.log(message)
+    // console.log(message)
     document.getElementById("apellidos_alert").innerHTML = message;
     return false;
   } else {
-    console.log("Apellidos válidos.");
+    // console.log("Apellidos válidos.");
     return true;
   }
 }
@@ -202,11 +202,11 @@ const validateEmail = function () {
 
   if (!validEmail(email.value)) {
     let message = "Email no valido.";
-    console.log(message)
+    // console.log(message)
     document.getElementById("email_alert").innerHTML = message;
     return false;
   } else {
-    console.log("Email válido.");
+    // console.log("Email válido.");
     return true;
   }
 }
@@ -218,11 +218,11 @@ const validatePassword = function () {
   passwordHideCorrections();
 
   if (!validPassword(pass_1.value)) {
-    console.log("La contraseña no es válida.");
+    // console.log("La contraseña no es válida.");
     passwordShowCorrections(pass_1.value);
     return false;
   } else {
-    console.log("La contraseña es válida.");
+    // console.log("La contraseña es válida.");
     return true;
   }
 }
@@ -245,27 +245,27 @@ const passwordShowCorrections = function (str) {
 
   if (!length.test(str)) {
     message = "La contraseña tiene que tener un mínimo de 8 caracteres.";
-    console.log(message);
+    // console.log(message);
     document.getElementById("password_alert_length").innerHTML = message;
   }
   if (!upperCase.test(str)) {
     message = "La contraseña tiene que contener una letra mayúscula.";
-    console.log(message);
+    // console.log(message);
     document.getElementById("password_alert_uppercase").innerHTML = message;
   }
   if (!lowerCase.test(str)) {
     message = "La contraseña tiene que contener una letra minúscula.";
-    console.log(message);
+    // console.log(message);
     document.getElementById("password_alert_lowercase").innerHTML = message;
   }
   if (!number.test(str)) {
     message = "La contraseña tiene que contener un número.";
-    console.log(message);
+    // console.log(message);
     document.getElementById("password_alert_number").innerHTML = message;
   }
   if (!symbol.test(str)) {
     message = "La contraseña tiene que contener uno de estos símbolos: ¿?¡!*.<>|@#~€¬\"·$ %& ()={}[]/\\.";
-    console.log(message);
+    // console.log(message);
     document.getElementById("password_alert_symbol").innerHTML = message;
   }
 };
@@ -275,11 +275,11 @@ const passwordMatch = function () {
 
   if (pass_1.value !== pass_2.value) {
     const message = "Las contraseñas no coinciden.";
-    console.log(message);
+    // console.log(message);
     document.getElementById("password_alert_match").innerHTML = message;
     return false;
   } else {
-    console.log("Las contraseñas coinciden.");
+    // console.log("Las contraseñas coinciden.");
     return true;
   }
 }
@@ -289,11 +289,11 @@ const validateBirth = function () {
 
   if (birth.value != "" && !validBirth(birth.value)) {
     let message = "Tienes que tener entre 18 y 120 años para poder leer.";
-    console.log(message);
+    // console.log(message);
     document.getElementById("fecha_alert").innerHTML = message;
     return false;
   } else {
-    console.log("La edad es válida o no está declarada.");
+    // console.log("La edad es válida o no está declarada.");
     return true;
   }
 }
@@ -308,11 +308,11 @@ const validateCardNum = function () {
 
   if (num === "" || !validCardNum(num) && !luhn(num)) {
     message = "El numero de la tarjeta no es válido.";
-    console.log(message);
+    // console.log(message);
     document.getElementById("tarjeta_alert").innerHTML = message;
     return false;
   } else {
-    console.log("El numero de la tarjeta es válido o no ha sido rellenado.");
+    // console.log("El numero de la tarjeta es válido o no ha sido rellenado.");
     return true;
   }
 }

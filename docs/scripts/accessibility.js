@@ -9,17 +9,17 @@ var mql = window.matchMedia("(max-device-width: 800px)");
 
 // Functions
 const increaseFontAll = function () {
-  console.log("Increasing font size...");
+  // console.log("Increasing font size...");
   increaseFont(document.body);
 };
 
 const decreaseFontAll = function () {
-  console.log("Decreasing font size...");
+  // console.log("Decreasing font size...");
   decreaseFont(document.body);
 };
 
 const modoNoche = function () {
-  console.log("Modo noche...");
+  // console.log("Modo noche...");
   noche(document.body);
 };
 
