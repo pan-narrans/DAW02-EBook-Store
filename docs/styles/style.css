@@ -18,3 +18,7 @@ h2 {
 .btn-accessibility {
   width: fit-content;
 }
+
+input:invalid {
+  border: 2px dashed red !important;
+}
