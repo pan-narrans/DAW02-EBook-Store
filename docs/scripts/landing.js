@@ -238,8 +238,8 @@ const passwordHideCorrections = function () {
 const passwordShowCorrections = function (str) {
   let message = "";
   const length = /.{8,}/;
-  const upperCase = /(?=.*\p{Lu}).*/;
-  const lowerCase = /(?=.*\p{Ll}).*/;
+  const upperCase = /(?=.*\p{Lu}).*/u;
+  const lowerCase = /(?=.*\p{Ll}).*/u;
   const number = /(?=.*\d).*/;
   const symbol = /(?=.*[¿?¡!*.<>|@#~€¬"·$%&()={}\[\]\/\\_\-]).*/;
 
