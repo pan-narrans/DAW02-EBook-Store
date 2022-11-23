@@ -68,7 +68,7 @@ const validate = function (e) {
   }
 
   // Validate credit card number
-  if (card.style.visibility != "none" && !validateCardNum()) {
+  if (card.style.display != "none" && !validateCardNum()) {
     // console.log("Problema con tarjeta");
     card.focus();
     return false;
