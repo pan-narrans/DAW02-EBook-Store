@@ -6,7 +6,7 @@
 <!-- IMAGE & TEXT -->
 <article id="oscuro"
             class="col-md-6 col-sm-12 text-center">
-    <img src="./images/Mock Book sin fondo.png"
+    <img src="Vista/images/Mock Book sin fondo.png"
         alt="Libro electrónico con el logo, la e en braille seguida de la palabra 'book'."
         class="img-fluid">
     <p id="letraOscuro">Regístrate en el formulario y recibe un cupón de 15% de descuento para tu primera compra.</p>
@@ -17,7 +17,9 @@
     <h1 class="text-center"
         id="title">REGÍSTRATE</h1>
     <p class="text-end text-danger">* Campo obligatorio</p>
-    <form action=""
+
+    <form action="index.php"
+        method="POST"
         id="landingForm"
         aria-label="Formulario para darse de alta en la tienda.">
 
@@ -263,10 +265,16 @@
         Enviar formulario</button>
 
         <input type="reset"
-                value="Resetear valores"
-                aria-label="Resetear los valores del formulario"
-                class="btn btn-secondary">
+               value="Resetear valores"
+               aria-label="Resetear los valores del formulario"
+               class="btn btn-secondary">
     </section>
+
+    <input type="text"
+           name="op"
+           id="op"
+           hidden
+           value="insertar">
 
     <section class="my-3">
         <p id="submit_alert"
