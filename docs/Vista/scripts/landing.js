@@ -19,13 +19,13 @@ const card_4 = document.getElementById("tarjeta_num_4");
 
 
 const validate = function (e) {
-  e.preventDefault();
   // console.log("Le has dado a submit.")
 
   // Validate username
   if (!validateUsername()) {
     // console.log("Problema con nombre de usuario.");
     username.focus();
+    e.preventDefault();
     return false;
   }
 
@@ -33,6 +33,7 @@ const validate = function (e) {
   if (!validateName()) {
     // console.log("Problema con nombre.");
     nombre.focus();
+    e.preventDefault();
     return false;
   }
 
@@ -40,6 +41,7 @@ const validate = function (e) {
   if (!validateSurname()) {
     // console.log("Problema con apellido.");
     surname.focus();
+    e.preventDefault();
     return false;
   }
 
@@ -50,6 +52,7 @@ const validate = function (e) {
   if (!validatePassword()) {
     // console.log("Problema con contraseña.");
     pass_1.focus();
+    e.preventDefault();
     return false;
   }
 
@@ -57,6 +60,7 @@ const validate = function (e) {
   if (!passwordMatch()) {
     // console.log("Problema con contraseña 2.");
     pass_2.focus();
+    e.preventDefault();
     return false;
   }
 
@@ -64,6 +68,7 @@ const validate = function (e) {
   if (!validateBirth()) {
     // console.log("Problema con fecha de nacimiento.");
     birth.focus();
+    e.preventDefault();
     return false;
   }
 
@@ -71,12 +76,13 @@ const validate = function (e) {
   if (card.style.display != "none" && !validateCardNum()) {
     // console.log("Problema con tarjeta");
     card.focus();
+    e.preventDefault();
     return false;
   }
 
   // console.log("Enviando el formulario.");
   document.getElementById("submit_alert").innerHTML = "Formulario enviado correctamente.";
-  //form.submit();
+
 }
 
 //#region Validation pure functions
