@@ -1,3 +1,6 @@
+<?php
+    require_once("Plantillas/Cabecera.html");
+?>
 <div class="row">
 
 <!-- IMAGE & TEXT -->
@@ -274,3 +277,8 @@
 </div>
 </main>
 <footer id="franja-movil"></footer>
+
+<script src="./scripts/landing.js"></script>
+<?php
+    require_once("Plantillas/Pie.html");
+?>

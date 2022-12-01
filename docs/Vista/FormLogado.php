@@ -1,3 +1,6 @@
+<?php
+    require_once("Plantillas/Cabecera.html");
+?>
 <!-- FORM -->
 <article class="col-md-6 col-sm-12">
     <h1 class="text-center"
@@ -78,3 +81,8 @@
             class="text-danger">
         </div>
     </fieldset>
+
+    <script src="./scripts/landing.js"></script>
+<?php
+    require_once("Plantillas/Pie.html");
+?>
