@@ -6,11 +6,10 @@ require_once('Modelo/Connection.php');
 /**
  * Performs CRUD operations.
  */
-class Model
+class Modelo
 {
   private mysqli $conn;
   private string $table;
-  private array  $list     = array();
 
   /**
    * Creates a new Model object linked to the specified table.
@@ -35,25 +34,19 @@ class Model
    * 
    * @param string  $statement  Prepared SQL statement of the query.
    *                            Example: "id=? AND units>?"
-   * @param mixed   ...$values  Values to use during the prepare. 
+   * @param mixed   $values     Values to use during the prepare. 
    *                            One parameter per '?' present in the statement.
    * 
    * @return mixed Array of the rows retrieved from the query.
    */
-  public function select(string $statement, ...$values)
+  public function select(string $statement, $values)
   {
-    $this->list = array();
-
     $sql = "SELECT * FROM " . $this->table . " WHERE " . $statement;
-    $statement  = $this->conn->prepare($sql);
+    $statement = $this->conn->prepare($sql);
     $statement->execute($values);
 
-    $i = 0;
-    $result = $statement->get_result();
-    while ($row = $result->fetch_array(MYSQLI_ASSOC))
-      $this->list[$i++] = $row;
-
-    return $this->list;
+    $result = $statement->get_result()->fetch_all();
+    return $result;
   }
 
   /**
