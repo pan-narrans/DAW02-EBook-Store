@@ -1,15 +1,19 @@
+-- CREATE USER
 DROP USER IF EXISTS "ebookadmin"@localhost;
 CREATE USER "ebookadmin" @localhost IDENTIFIED BY "ebook";
 GRANT ALL PRIVILEGES ON * . * TO "ebookadmin" @localhost;
 
+-- CREATE DATABASE
 DROP DATABASE IF EXISTS ebook;
 CREATE DATABASE ebook;
 USE ebook;
 
+-- CREATE TABLES
 CREATE TABLE tipos(
     codigo INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(50)
 );
+
 CREATE TABLE usuarios(
     id INT PRIMARY KEY AUTO_INCREMENT,
     usuario VARCHAR(20),
@@ -17,10 +21,12 @@ CREATE TABLE usuarios(
     tipo INT,
     foto VARCHAR(255)
 );
+
 CREATE TABLE passwords(
 	id_usuario INT PRIMARY KEY,
     password VARCHAR(100)
 );
+
 CREATE TABLE datos(
     id_usuario INT PRIMARY KEY,
     nombre VARCHAR(30),
@@ -32,6 +38,7 @@ CREATE TABLE datos(
     tarjeta VARCHAR(20)
 );
 
+-- ADD FOREIGN KEYS
 ALTER TABLE usuarios
 	ADD CONSTRAINT USUARIOTIPOSid FOREIGN KEY (tipo) REFERENCES tipos (codigo);
     
@@ -41,6 +48,7 @@ ALTER TABLE passwords
 ALTER TABLE datos
 	ADD CONSTRAINT DATOSUSUARIOid FOREIGN KEY (id_usuario) REFERENCES usuarios (id);
 
+-- INSERT MOCK DATA
 INSERT INTO tipos(nombre) VALUES ("Invitado");
 INSERT INTO tipos(nombre) VALUES ("Cliente");
 INSERT INTO tipos(nombre) VALUES ("Vendedor");
