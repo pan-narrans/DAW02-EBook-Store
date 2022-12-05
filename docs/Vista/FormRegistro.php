@@ -126,20 +126,10 @@
         </div>
 
         <!-- PASSWORD ALERTS -->
-        <div id="password_alerts">
-        <p id="password_alert_match"
-            class="text-danger">
-        <p id="password_alert_length"
-            class="text-danger">
-        <p id="password_alert_uppercase"
-            class="text-danger">
-        <p id="password_alert_lowercase"
-            class="text-danger">
-        <p id="password_alert_number"
-            class="text-danger">
-        <p id="password_alert_symbol"
-            class="text-danger">
-        </div>
+        <div id="password_alerts"
+             class="my-3 text-danger"></div>
+        <div id="password_alert_match"
+             class="my-3 text-danger"></div>
     </fieldset>
 
     <!-- GENERO -->
@@ -197,25 +187,25 @@
         <legend class="d-none">Tarjeta de crédito</legend>
         <div class="input-group">
         <legend class="input-group-text">Tarjeta</legend>
-        <label for="tarjeta_num_1" class="d-none">Primeros 4 numeros</label>
+        <label for="tarjeta_num_1" class="d-none">Primeros 4 números</label>
         <input type="text"
                 name="tarjeta_num_1"
                 id="tarjeta_num_1"
                 maxlength="4"
                 class="form-control">
-        <label for="tarjeta_num_2" class="d-none">Segundos 4 numeros</label>
+        <label for="tarjeta_num_2" class="d-none">Segundos 4 números</label>
         <input type="text"
                 name="tarjeta_num_2"
                 id="tarjeta_num_2"
                 maxlength="4"
                 class="form-control">
-        <label for="tarjeta_num_3" class="d-none">Terceros 4 numeros</label>
+        <label for="tarjeta_num_3" class="d-none">Terceros 4 números</label>
         <input type="text"
                 name="tarjeta_num_3"
                 id="tarjeta_num_3"
                 maxlength="4"
                 class="form-control">
-        <label for="tarjeta_num_4" class="d-none">Cuartos 4 numeros</label>
+        <label for="tarjeta_num_4" class="d-none">Cuartos 4 números</label>
         <input type="text"
                 name="tarjeta_num_4"
                 id="tarjeta_num_4"
@@ -274,7 +264,7 @@
            name="op"
            id="op"
            hidden
-           value="insertar">
+           value="registrar_usuario">
 
     <section class="my-3">
         <p id="submit_alert"
@@ -286,7 +276,8 @@
 </main>
 <footer id="franja-movil"></footer>
 
-<script src="./scripts/landing.js"></script>
+<script src="Vista/scripts/landing.js"></script>
+
 <?php
-    require_once("Plantillas/Pie.html");
+  require_once("Plantillas/Pie.html");
 ?>

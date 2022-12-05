@@ -221,7 +221,7 @@ const validateEmail = function () {
 /* PASSWORD VALIDATION */
 const validatePassword = function () {
   // Esconder las alerts
-  passwordHideCorrections();
+  document.getElementById("password_alerts").innerHTML = "";
 
   if (!validPassword(pass_1.value)) {
     // console.log("La contraseña no es válida.");
@@ -233,47 +233,38 @@ const validatePassword = function () {
   }
 }
 
-const passwordHideCorrections = function () {
-  document.getElementById("password_alert_length").innerHTML = "";
-  document.getElementById("password_alert_uppercase").innerHTML = "";
-  document.getElementById("password_alert_lowercase").innerHTML = "";
-  document.getElementById("password_alert_number").innerHTML = "";
-  document.getElementById("password_alert_symbol").innerHTML = "";
-}
-
 const passwordShowCorrections = function (str) {
-  let message = "";
+  let messages = {};
   const length = /.{8,}/;
   const upperCase = /(?=.*\p{Lu}).*/u;
   const lowerCase = /(?=.*\p{Ll}).*/u;
   const number = /(?=.*\d).*/;
   const symbol = /(?=.*[¿?¡!*.<>|@#~€¬"·$%&()={}\[\]\/\\_\-]).*/;
 
-  if (!length.test(str)) {
-    message = "La contraseña tiene que tener un mínimo de 8 caracteres.";
-    // console.log(message);
-    document.getElementById("password_alert_length").innerHTML = message;
-  }
-  if (!upperCase.test(str)) {
-    message = "La contraseña tiene que contener una letra mayúscula.";
-    // console.log(message);
-    document.getElementById("password_alert_uppercase").innerHTML = message;
-  }
-  if (!lowerCase.test(str)) {
-    message = "La contraseña tiene que contener una letra minúscula.";
-    // console.log(message);
-    document.getElementById("password_alert_lowercase").innerHTML = message;
-  }
-  if (!number.test(str)) {
-    message = "La contraseña tiene que contener un número.";
-    // console.log(message);
-    document.getElementById("password_alert_number").innerHTML = message;
-  }
-  if (!symbol.test(str)) {
-    message = "La contraseña tiene que contener uno de estos símbolos: ¿?¡!*.<>|@#~€¬\"·$ %& ()={}[]/\\.";
-    // console.log(message);
-    document.getElementById("password_alert_symbol").innerHTML = message;
-  }
+  if (!length.test(str))
+    messages.tamaño = "La contraseña tiene que tener un mínimo de 8 caracteres.";
+
+  if (!upperCase.test(str))
+    messages.mayúscula = "La contraseña tiene que contener una letra mayúscula.";
+
+  if (!lowerCase.test(str))
+    messages.minúscula = "La contraseña tiene que contener una letra minúscula.";
+
+  if (!number.test(str))
+    messages.números = "La contraseña tiene que contener un número.";
+
+  if (!symbol.test(str))
+    messages.símbolos = "La contraseña tiene que contener uno de estos símbolos: ¿?¡!*.<>|@#~€¬\"·$ %& ()={}[]/\\.";
+
+  Object.keys(messages).forEach(
+    key => {
+      console.log(key)
+      let p = document.createElement('p');
+      p.id = key;
+      p.innerHTML = messages[key];
+      document.getElementById("password_alerts").appendChild(p);
+    }
+  )
 };
 
 const passwordMatch = function () {
