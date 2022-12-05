@@ -1,7 +1,7 @@
 <?php
 
 
-require_once('Modelo/Connection.php');
+require_once('Modelo/Conexion.php');
 
 /**
  * Performs CRUD operations.
@@ -33,11 +33,11 @@ class Modelo
    * Performs a SELECT operation against the database.
    * 
    * @param string  $statement  Prepared SQL statement of the query.
-   *                            Example: "id=? AND units>?"
-   * @param mixed   $values     Values to use during the prepare. 
-   *                            One parameter per '?' present in the statement.
+   *                            Example: " id=? AND units>? "
+   * @param array   $values     Array of values to use during the prepare. 
+   *                            One value per '?' present in the statement.
    * 
-   * @return mixed Array of the rows retrieved from the query.
+   * @return array Associative array of the rows retrieved from the query.
    */
   public function select(string $statement, $values)
   {
@@ -45,13 +45,13 @@ class Modelo
     $statement = $this->conn->prepare($sql);
     $statement->execute($values);
 
-    $result = $statement->get_result()->fetch_all();
+    $result = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
     return $result;
   }
 
   /**
-   * Inserts a new value into the database. 
-   * The id property of the object if present must be null.
+   * Inserts a new row into the database. All the object
+   * properties will be inserted into the database.
    * 
    * @param mixed $obj  Object to insert into the database.
    * 
@@ -60,30 +60,19 @@ class Modelo
    */
   public function insert($obj)
   {
-    $data = get_object_vars($obj);
-    if ($data['id']) $data['id'] = null;;
+    $sql = "INSERT INTO " . $this->table . " ";
+    $fields = "(";
+    $statement = "(";
+    $values = array();
 
-    $fields       = "(";
-    $placeholder  = "(";
-    $values       = array();
-    $i            = 0;
+    foreach ($obj as $key => $value) :
+      $fields .= $key . ',';
+      $statement .= "?,";
+      array_push($values, $value);
+    endforeach;
 
-    // INSERT INTO table (field1, field2, ...) VALUES (?, ?, ...);
-    foreach ($data as $key => $value) {
-      $fields .= $key . ",";
-      $placeholder .= "?,";
-
-      if (gettype($value) == "object")
-        $values[$i++] = get_object_vars($value)["id"];
-      else
-        $values[$i++] = $value;
-    }
-
-    $fields       = substr_replace($fields, ")", strlen($fields) - 1);
-    $placeholder  = substr_replace($placeholder, ")", strlen($placeholder) - 1);
-
-    $sql = "INSERT INTO " . $this->table . " " . $fields . " VALUES " . $placeholder;
-    $statement  = $this->conn->prepare($sql);
+    $sql .= preg_replace('/.$/', ')', $fields) . " VALUES " . preg_replace('/.$/', ')', $statement);
+    $statement = $this->conn->prepare($sql);
 
     return $statement->execute($values);
   }
