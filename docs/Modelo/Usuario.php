@@ -69,7 +69,11 @@ class Usuario
 
   public function getID()
   {
-    return (new Modelo('usuarios'))->select('correo=?', array($this->mail))[0]['id'];
+    return (new Modelo())->select(
+      DB_TABLA_USUARIOS,
+      'correo=?',
+      array($this->mail)
+    )[0]['id'];
   }
 
   public function cargar()

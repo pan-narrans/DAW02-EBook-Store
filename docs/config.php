@@ -6,25 +6,20 @@ define('DB_USERNAME', 'ebook-admin');
 define('DB_PASSWORD', 'ebook'      );
 define('DB_DATABASE', 'ebook'      );
 
+
 // TABLAS BASE DE DATOS
 define('DB_TABLA_USUARIOS'   , 'usuarios' );
 define('DB_TABLA_DATOS'      , 'datos'    );
 define('DB_TABLA_CONTRASEÑAS', 'passwords');
 define('DB_TABLA_TIPOS'      , 'tipos'    );
 
-// COLUMNAS TABA TIPOS
-// TODO:
 
 // COLUMNAS TABLA USUARIOS
-define('USER_ID'  , 'id'     );
-define('USER_NICK', 'usuario');
-define('USER_MAIL', 'correo' );
-define('USER_TIPO', 'tipo'   );
-define('USER_FOTO', 'foto'   );
-
-// COLUMNAS TABLA CONTRASEÑAS
-define('PASS_ID'          , 'id_usuario');
-define('PASS_CONTRASEÑA'  , 'password'  );
+define('USUARIO_ID'     , 'id'     );
+define('USUARIO_NICK'   , 'usuario');
+define('USUARIO_MAIL'   , 'correo' );
+define('USUARIO_TIPO'   , 'tipo'   );
+define('USUARIO_AVATAR' , 'foto'   );
 
 // COLUMNAS TABLA DATOS
 define('DATOS_ID'         , 'id_usuario'      );
@@ -35,3 +30,12 @@ define('DATOS_CUMPLEAÑOS' , 'fecha_nacimiento');
 define('DATOS_DIRECCION'  , 'direccion'       );
 define('DATOS_PAIS'       , 'pais'            );
 define('DATOS_TARJETA'    , 'tarjeta'         );
+
+// COLUMNAS TABA TIPOS
+define('TIPO_ID'    , 'codigo');
+define('TIPO_NOMBRE', 'nombre');
+
+// COLUMNAS TABLA CONTRASEÑAS
+define('CONTRASEÑA_ID'    , 'id_usuario');
+define('CONTRASEÑA_VALOR' , 'password'  );
+

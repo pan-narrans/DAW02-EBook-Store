@@ -2,59 +2,75 @@
 
 class Controlador
 {
-  public static function nuevoRegistro()
+
+  private Modelo $modelo;
+
+  public function __construct(Modelo $modelo)
   {
-    // validar datos
-    // registrar
-    require_once('Control/Registro.php');
+    $this->modelo = $modelo;
+  }
 
-    if (true) :
-      // datos validos
-      require_once('Modelo/Modelo.php');
-      require_once('Modelo/Usuario.php');
+  public function registrarUsuario($datos_formulario)
+  {
+    // Mapeo del formulario a la base de datos y separación en tablas para facilitar el insert.
+    require_once('form_mapping.php');
+    $usuario      = $this->map($mapa_tabla_usuarios, $datos_formulario);
+    $datos_extra  = $this->map($mapa_tabla_datos, $datos_formulario);
+    $contraseña   = $this->map($mapa_tabla_contraseñas, $datos_formulario);
 
-      // Guardar el usuario en sesión
-      $_SESSION['usuario'] = new Usuario(
-        $_POST['usuario'],
-        $_POST['email'],
-        2
-      );
+    // ! tipo hardcodeado
+    $usuario[USUARIO_TIPO]  = 2;
 
+    // Guardar el usuario en sesión
+    require_once('Modelo/Usuario.php');
+    $_SESSION['usuario'] = new Usuario(
+      $usuario[USUARIO_NICK],
+      $usuario[USUARIO_MAIL],
+      $usuario[USUARIO_TIPO]
+    );
+
+    // VALIDACIÓN
+    require_once('Control/Validacion.php');
+    $validador  = new ValidaciónDatosRegistro($this->modelo);
+    $errores = [];
+    $errores = array_merge($errores, $validador->validar($usuario));
+    $errores = array_merge($errores, $validador->validar($datos_extra));
+    $errores = array_merge($errores, $validador->validar($contraseña));
+
+    // INSERCIÓN EN BASE DE DATOS
+    if (sizeof($errores) == 0) :
       // Insertar en tabla usuarios.
-      // TODO: No hardcodear el tipo
-      (new Modelo(DB_TABLA_USUARIOS))->insert(
-        (object) array(
-          USER_NICK => $_POST['usuario'],
-          USER_MAIL => $_POST['email'],
-          USER_TIPO => 2
-        )
-      );
+      $this->modelo->insert(DB_TABLA_USUARIOS, $usuario);
 
       // Insertar en tabla passwords
-      (new Modelo(DB_TABLA_CONTRASEÑAS))->insert(
-        (object) array(
-          PASS_ID         => $_SESSION['usuario']->getId(),
-          PASS_CONTRASEÑA => $_POST['password_1']
-        )
+      $this->modelo->insert(
+        DB_TABLA_CONTRASEÑAS,
+        array_merge([CONTRASEÑA_ID  => $_SESSION['usuario']->getId()], $contraseña)
       );
 
       // Insertar en tabla datos
-      (new Modelo(DB_TABLA_DATOS))->insert(
-        (object) array(
-          DATOS_ID         => $_SESSION['usuario']->getId(),
-          DATOS_NOMBRE     => $_POST['nombre'],
-          DATOS_APELLIDOS  => $_POST['apellidos'],
-          DATOS_GENERO     => isset($_POST['genero']) ? $_POST['genero'] : null,
-          DATOS_CUMPLEAÑOS => isset($_POST['fecha_nacimiento']) ? $_POST['fecha_nacimiento'] : null,
-          DATOS_DIRECCION  => isset($_POST['direccion']) ? $_POST['direccion'] : null,
-          DATOS_PAIS       => isset($_POST['pais']) ? $_POST['pais'] : null,
-          DATOS_TARJETA    => null,
-        )
+      $this->modelo->insert(
+        DB_TABLA_DATOS,
+        array_merge([DATOS_ID => $_SESSION['usuario']->getId()], $datos_extra,)
       );
 
-
+      require_once('Vista/home.php');
     else :
-    // datos no validos
+      var_dump($errores);
+      require_once('Vista/form_registro.php');
     endif;
+  }
+
+  public function map(array $mapa, array $datos)
+  {
+    $datos_mapeados = [];
+
+    foreach ($datos as $clave => $valor) :
+      if (isset($mapa[$clave])) :
+        $datos_mapeados[$mapa[$clave]] = $valor;
+      endif;
+    endforeach;
+
+    return $datos_mapeados;
   }
 }

@@ -1,15 +1,11 @@
 <?php
 
-
-require_once('Modelo/Conexion.php');
-
 /**
  * Performs CRUD operations.
  */
 class Modelo
 {
   private mysqli $conn;
-  private string $table;
 
   /**
    * Creates a new Model object linked to the specified table.
@@ -20,10 +16,9 @@ class Modelo
    * 
    * @return bool Returns whether the connection succeeded or not.
    */
-  public function __construct(string $table)
+  public function __construct()
   {
-    $this->table  = $table;
-    $this->conn   =  Conexion::conectar();;
+    $this->conn = new mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
     // Check for errors in connection.
     return $this->conn->connect_errno ? false : true;
@@ -39,9 +34,9 @@ class Modelo
    * 
    * @return array Associative array of the rows retrieved from the query.
    */
-  public function select(string $statement, $values)
+  public function select(string $table, string $statement, array $values)
   {
-    $sql = "SELECT * FROM " . $this->table . " WHERE " . $statement;
+    $sql = "SELECT * FROM " . $table . " WHERE " . $statement;
     $statement = $this->conn->prepare($sql);
     $statement->execute($values);
 
@@ -50,22 +45,23 @@ class Modelo
   }
 
   /**
-   * Inserts a new row into the database. All the object
+   * Inserts a new row into the database. All the array's
    * properties will be inserted into the database.
    * 
-   * @param mixed $obj  Object to insert into the database.
+   * @param mixed $array  Associative array of values to insert
+   *                      into the database.
    * 
    * @return bool Returns whether or not the object was 
    *              successfully inserted into the database.
    */
-  public function insert($obj)
+  public function insert(string $table, array $array)
   {
-    $sql = "INSERT INTO " . $this->table . " ";
+    $sql = "INSERT INTO " . $table . " ";
     $fields = "(";
     $statement = "(";
     $values = array();
 
-    foreach ($obj as $key => $value) :
+    foreach ($array as $key => $value) :
       $fields .= $key . ',';
       $statement .= "?,";
       array_push($values, $value);
@@ -78,6 +74,7 @@ class Modelo
   }
 
   /**
+   * ! NO REVISADO 
    * Updates an entry from the database based on the id. 
    * The id property of the object must be set.
    * 
@@ -115,6 +112,7 @@ class Modelo
   }
 
   /**
+   * ! NO REVISADO 
    * Deletes an entry from the database based on the id. 
    * The id property of the object must be set.
    * 
@@ -135,6 +133,7 @@ class Modelo
   }
 
   /**
+   * ! NO REVISADO 
    * Closes the connection to the database.
    */
   public function close()
