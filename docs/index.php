@@ -6,7 +6,6 @@ if (isset($_POST['op'])) :
   require_once('Control/Controlador.php');
   switch ($_POST['op']) {
     case 'registrar_usuario':
-      require_once('Vista/Home.php');
       $_SESSION["datos_formulario"] = $_POST;
       Controlador::nuevoRegistro();
       break;

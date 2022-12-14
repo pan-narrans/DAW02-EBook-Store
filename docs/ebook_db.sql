@@ -16,10 +16,10 @@ CREATE TABLE tipos(
 
 CREATE TABLE usuarios(
   id      INT PRIMARY KEY AUTO_INCREMENT,
-  usuario VARCHAR(50),
+  usuario VARCHAR(50) NOT NULL,
   correo  VARCHAR(100) UNIQUE,
   tipo    INT,
-  foto    VARCHAR(255)
+  foto    longblob DEFAULT NULL
 );
 
 CREATE TABLE passwords(
