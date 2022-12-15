@@ -26,10 +26,12 @@
 
       <!-- FORM -->
       <article class="col-lg-8 col-md-10 col-sm-12 mx-auto">
-        <h1 class="text-center" id="title">Nuevo Registro</h1>
+        <div class="d-flex justify-content-between align-items-baseline">
+          <h1 class="text-center" id="title">Nuevo Registro</h1>
+          <p class="text-start text-danger">* Campo obligatorio</p>
+        </div>
 
         <form action="index.php" method="POST" id="landingForm" aria-label="Formulario para darse de alta en la tienda.">
-
           <!-- USERNAME -->
           <fieldset>
             <legend class="d-none">Nombre de usuario</legend>
@@ -111,9 +113,7 @@
             </label>
           </fieldset>
 
-          <p class="text-start text-danger">* Campo obligatorio</p>
           <!-- SUBMIT -->
-
           <section class="d-flex justify-content-between">
             <button type="submit" aria-label="Enviar formulario" class="btn btn-primary">
               Enviar formulario</button>
