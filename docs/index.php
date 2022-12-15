@@ -1,12 +1,19 @@
 <?php
-  echo 'Hola';
+
+require_once('config.php');
+require_once('Control/Controlador.php');
+require_once('Modelo/Modelo.php');
+
+session_start();
+
+$modelo = new Modelo();
+$controlador = new Controlador($modelo);
 
 if (isset($_POST['op'])) :
-  echo 'tenemos operación disponible';
   switch ($_POST['op']) {
-    case 'insertar':
-      require_once('Vista/Home.php');
-      echo 'INSERTAMOS';
+    case 'registrar_usuario':
+      $_SESSION["datos_formulario"] = $_POST;
+      $controlador->registrarUsuario($_POST);
       break;
 
     default:
@@ -14,6 +21,5 @@ if (isset($_POST['op'])) :
       break;
   }
 else :
-  echo 'no post';
-  require_once('Vista/FormRegistro.php');
+  require_once('Vista/form_registro.php');
 endif;

@@ -7,8 +7,16 @@ class Usuario
   private $foto;
   private $tipo;
 
-  public function __construct()
-  {
+  public function __construct(
+    $nick,
+    $mail,
+    $tipo,
+    $foto = null,
+  ) {
+    $this->setNick($nick);
+    $this->setMail($mail);
+    $this->setTipo($tipo);
+    $this->setFoto($foto);
   }
 
   #region GETTERS
@@ -59,6 +67,14 @@ class Usuario
 
   #endregion
 
+  public function getID()
+  {
+    return (new Modelo())->select(
+      DB_TABLA_USUARIOS,
+      'correo=?',
+      array($this->mail)
+    )[0]['id'];
+  }
 
   public function cargar()
   {

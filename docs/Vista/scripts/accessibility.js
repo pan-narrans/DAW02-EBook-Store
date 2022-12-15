@@ -28,7 +28,7 @@ const increaseFont = function (element) {
   let newFontSize = parseInt(oldFontSize) + 1;
   element.style.fontSize = newFontSize + "px";
 
-  for(let i = 0; i < element.children.length; i++)
+  for (let i = 0; i < element.children.length; i++)
     increaseFont(element.children[i]);
 };
 
@@ -37,27 +37,29 @@ const decreaseFont = function (element) {
   let newFontSize = parseInt(oldFontSize) - 1;
   element.style.fontSize = newFontSize + "px";
 
-  for(let i = 0; i < element.children.length; i++)
+  for (let i = 0; i < element.children.length; i++)
     decreaseFont(element.children[i]);
 };
 
-const noche = function (element){
+const noche = function (element) {
   if (element.style.backgroundColor === "rgb(35, 33, 33)") {
     element.style.backgroundColor = "white";
     element.style.color = "black";
-    if(mql.matches){
+    if (mql.matches) {
       articuloOscuro.style.backgroundColor = "white";
       letraOscuro.style.color = "black";
     }
-  }else {
+  } else {
     element.style.backgroundColor = "rgb(35, 33, 33)";
     articuloOscuro.style.backgroundColor = "rgb(35, 33, 33)";
     letraOscuro.style.color = "white";
     element.style.color = "white";
-}
+  }
 };
 
 // Events
-bigger.addEventListener("click", increaseFontAll);
-smaller.addEventListener("click", decreaseFontAll);
-night.addEventListener("click", modoNoche);
+window.onload = () => {
+  bigger.addEventListener("click", increaseFontAll);
+  smaller.addEventListener("click", decreaseFontAll);
+  night.addEventListener("click", modoNoche);
+}
