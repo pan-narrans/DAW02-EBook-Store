@@ -29,9 +29,9 @@ class Controlador
       $usuario[USUARIO_TIPO]
     );
 
-    // VALIDACIÓN
+   // VALIDACIÓN
     require_once('Control/Validacion.php');
-    $validador  = new ValidaciónDatosRegistro($this->modelo);
+    $validador  = new ValidacionDatosRegistro($this->modelo);
     $errores = [];
     $errores = array_merge($errores, $validador->validar($usuario));
     $errores = array_merge($errores, $validador->validar($datos_extra));

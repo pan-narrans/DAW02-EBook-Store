@@ -1,6 +1,6 @@
 <?php
 
-class ValidaciónDatosRegistro
+class ValidacionDatosRegistro
 {
   private Modelo $modelo;
 
