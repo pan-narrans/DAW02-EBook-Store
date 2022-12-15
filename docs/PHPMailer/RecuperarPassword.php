@@ -29,13 +29,13 @@
 //Port to connect smtp
 	$mail->Port = "587";
 //Set gmail username
-	$mail->Username = "e-Book";
+	$mail->Username = "eBook";
 //Set gmail password
-	$mail->Password = "lahfdtobijhdeauk";
+	$mail->Password = "Tienda.ebook";
 //Email subject
 	$mail->Subject = "Test email using PHPMailer";
 //Set sender email
-	$mail->setFrom('frikisetasex@gmail.com');
+	$mail->setFrom('ebook.soporte@gmail.com');
 //Enable HTML
 	$mail->isHTML(true);
 //Attachment
@@ -43,7 +43,7 @@
 //Email body
 	$mail->Body = "<h1>This is HTML h1 Heading</h1></br><p>This is html paragraph</p>";
 //Add recipient A quien se le envia
-	$mail->addAddress('zapencio@gmail.com');
+	$mail->addAddress('cris.pascua88@gmail.com');
 //Finally send email
 	if ( $mail->send() ) {
 		echo "Email Sent..!";
