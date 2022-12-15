@@ -54,10 +54,11 @@ class Controlador
         array_merge([DATOS_ID => $_SESSION['usuario']->getId()], $datos_extra,)
       );
 
+      // $_POST = [];
       require_once('Vista/home.php');
     else :
       var_dump($errores);
-      require_once('Vista/form_registro.php');
+      require_once('Vista/page_acceso.php');
     endif;
   }
 

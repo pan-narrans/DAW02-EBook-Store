@@ -6,99 +6,100 @@
   padding: 0 5px 0 0;
 }
 
-body{
+body {
   height: 100vh;
   background-color: #ffffff;
   color: black;
 }
 
-  .navbar {
-    padding: 0%;
-    margin: 0%;
-    height: 7%;
-  }
+.navbar {
+  padding: 0%;
+  margin: 0%;
+  height: 7%;
+}
 
-  main{
-    height: 88%;
-  }
+main {
+  height: 88%;
+}
 
-  div.row {
-    margin: 0%;
-    height: 100%;
-  }
+div.row {
+  margin: 0%;
+  height: 100%;
+}
 
-    article {
-      margin: 0% 0% 0%;
-      padding-top: 2.1%;
-      padding-bottom: 2.1%;
-    }
+article {
+  margin: 0% 0% 0%;
+  padding-top: 2.1%;
+  padding-bottom: 2.1%;
+}
 
-      .row>* {
-        padding-left: 6%;
-        padding-right: 6%;
-      }
-    
-      #oscuro {
-        background-color: #232121;
-      }
+.row>* {
+  padding-left: 6%;
+  padding-right: 6%;
+}
 
-        #letraOscuro {
-          color: white;
-        }
+#oscuro {
+  background-color: #232121;
+}
 
-      legend {
-        width: auto;
-        margin: 0;
-      }
+#letraOscuro {
+  color: white;
+}
 
-      .btn-primary{
-        --bs-btn-bg: #A33939;
-        --bs-btn-border-color: #A33939;
-        --bs-btn-hover-bg: #6c757d;
-        --bs-btn-hover-border-color: #6c757d;
-      }
+legend {
+  width: auto;
+  margin: 0;
+}
 
-      .form-check{
-        accent-color: #A33939;
-      }
+.btn-primary {
+  --bs-btn-bg: #A33939;
+  --bs-btn-border-color: #A33939;
+  --bs-btn-hover-bg: #6c757d;
+  --bs-btn-hover-border-color: #6c757d;
+}
+
+
+.form-check {
+  accent-color: #A33939;
+}
 
 @media (max-width: 800px) {
 
-  main{
+  main {
     height: auto;
     margin: 0 10%;
   }
 
-    .btn-accessibility {
-      font-size: 0.8em;
-    }
+  .btn-accessibility {
+    font-size: 0.8em;
+  }
 
-    #oscuro {
-      background-color: white;
-    }
+  #oscuro {
+    background-color: white;
+  }
 
-      #oscuro p {
-        color: black;
-      }
+  #oscuro p {
+    color: black;
+  }
 
-      #landingForm {
-        margin-bottom: 10%;
-      }
+  #landingForm {
+    margin-bottom: 10%;
+  }
 
-    .row>* {
-      padding-left: 1%;
-      padding-right: 1%;
-    }
+  .row>* {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
 
-      .text-center {
-        margin-bottom: 10%;
-      }
+  .text-center {
+    margin-bottom: 10%;
+  }
 
-    #franja-movil{
-      background-color: #232121;
-      height: 40px;
-      width: 100%;
-      margin: 0%;
-      padding: 0%;
-    }
+  #franja-movil {
+    background-color: #232121;
+    height: 40px;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+  }
 }
