@@ -1,43 +1,43 @@
 <?php
 
-class Usuario
-{
+class Usuario {
   private $nick;
   private $mail;
   private $foto;
   private $tipo;
 
   public function __construct(
-    $nick,
     $mail,
-    $tipo,
+    $nick = null,
+    $tipo = null,
     $foto = null,
   ) {
-    $this->setNick($nick);
     $this->setMail($mail);
-    $this->setTipo($tipo);
-    $this->setFoto($foto);
+
+    if ($nick == null && $tipo == null && $foto == null) :
+      $this->cargar();
+    else :
+      $this->setNick($nick);
+      $this->setTipo($tipo);
+      $this->setFoto($foto);
+    endif;
   }
 
   #region GETTERS
 
-  public function getNick()
-  {
+  public function getNick() {
     return $this->nick;
   }
 
-  public function getMail()
-  {
+  public function getMail() {
     return $this->mail;
   }
 
-  public function getFoto()
-  {
+  public function getFoto() {
     return $this->foto;
   }
 
-  public function getTipo()
-  {
+  public function getTipo() {
     return $this->tipo;
   }
 
@@ -45,38 +45,41 @@ class Usuario
 
   #region SETTERS
 
-  public function setNick($nick)
-  {
+  public function setNick($nick) {
     $this->nick = $nick;
   }
 
-  public function setMail($mail)
-  {
+  public function setMail($mail) {
     $this->mail = $mail;
   }
 
-  public function setFoto($foto)
-  {
+  public function setFoto($foto) {
     $this->foto = $foto;
   }
 
-  public function setTipo($tipo)
-  {
+  public function setTipo($tipo) {
     $this->tipo = $tipo;
   }
 
   #endregion
 
-  public function getID()
-  {
+  public function getID() {
     return (new Modelo())->select(
       DB_TABLA_USUARIOS,
       'correo=?',
       array($this->mail)
-    )[0]['id'];
+    )[0][USUARIO_ID];
   }
 
-  public function cargar()
-  {
+  public function cargar() {
+    $datos = (new Modelo())->select(
+      DB_TABLA_USUARIOS,
+      'correo=?',
+      array($this->mail)
+    )[0];
+
+    $this->setNick($datos[USUARIO_NICK]);
+    $this->setTipo($datos[USUARIO_TIPO]);
+    $this->setFoto($datos[USUARIO_AVATAR]);
   }
 }

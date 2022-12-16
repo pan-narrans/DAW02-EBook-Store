@@ -3,13 +3,13 @@
   <p class="text-start text-danger">* Campo obligatorio</p>
 </div>
 
-<form action="index.php" method="POST" id="landingForm" aria-label="Formulario para darse de alta en la tienda.">
+<form action="index.php" method="POST" id="formulario_registro" name="formulario_registro" aria-label="Formulario para registrar una nueva cuenta en la tienda.">
   <!-- USERNAME -->
   <fieldset>
     <legend class="d-none">Nombre de usuario</legend>
     <div class=" input-group">
       <label for="usuario" class="d-none"> Nombre de Usuario (Obligatorio)</label>
-      <input type="usuario" name="usuario" id="usuario" placeholder="Nombre de Usuario" class="form-control w-100" required value="<?= isset($_POST['usuario']) ? $_POST['usuario'] : ""; ?>">
+      <input type="usuario" name="usuario" id="usuario" placeholder="Nombre de Usuario" class="form-control w-100" required>
       <span></span>
     </div>
 
@@ -22,10 +22,10 @@
     <legend class="d-none">Nombre y Apellidos</legend>
     <div class=" input-group">
       <label for="nombre" class="d-none"> Nombre (Obligatorio)</label>
-      <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" required value="<?= isset($_POST['nombre']) ? $_POST['nombre'] : ""; ?>">
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" required>
       <span></span>
       <label for="apellidos" class="d-none"> Apellidos (Obligatorio)</label>
-      <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" class="form-control" required value="<?= isset($_POST['apellidos']) ? $_POST['apellidos'] : ""; ?>">
+      <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" class="form-control" required>
       <span></span>
     </div>
 
@@ -39,7 +39,7 @@
     <legend class="d-none">E-mail</legend>
     <div class=" input-group">
       <label for="email" class="d-none"> E-mail (Obligatorio)</label>
-      <input type="email" name="email" id="email" placeholder="E-mail" class="form-control" required value="<?= isset($_POST['email']) ? $_POST['email'] : ""; ?>">
+      <input type="email" name="email" id="email" placeholder="E-mail" class="form-control" required>
       <span></span>
     </div>
 
@@ -52,10 +52,10 @@
     <legend class="d-none">Contraseña</legend>
     <div class=" input-group">
       <label for="password_1" class="d-none"> Contraseña (Obligatorio)</label>
-      <input type="password" name="password_1" id="password_1" placeholder="Contraseña" class="form-control" required value="<?= isset($_POST['password_1']) ? $_POST['password_1'] : ""; ?>">
+      <input type="password" name="password_1" id="password_1" placeholder="Contraseña" class="form-control" required>
       <span></span>
       <label for="password_2" class="d-none"> Repetir Contraseña (Obligatorio)</label>
-      <input type="password" name="password_2" id="password_2" placeholder="Repetir Contraseña" class="form-control" required value="<?= isset($_POST['password_2']) ? $_POST['password_2'] : ""; ?>">
+      <input type="password" name="password_2" id="password_2" placeholder="Repetir Contraseña" class="form-control" required>
       <span></span>
     </div>
 
