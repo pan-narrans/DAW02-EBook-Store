@@ -12,8 +12,10 @@ $controlador = new Controlador($modelo);
 if (isset($_POST['op'])) :
   switch ($_POST['op']) {
     case 'registrar_usuario':
-      $_SESSION["datos_formulario"] = $_POST;
       $controlador->registrarUsuario($_POST);
+      break;
+    case 'log_usuario':
+      $controlador->logUsuario($_POST);
       break;
     case 'mostrar_acceso':
       require_once('Vista/page_acceso.php');

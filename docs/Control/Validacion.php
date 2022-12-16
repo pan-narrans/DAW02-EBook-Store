@@ -1,7 +1,6 @@
 <?php
 
-class ValidacionDatosRegistro
-{
+class ValidacionDatosRegistro {
   private Modelo $modelo;
 
   // TODO:
@@ -18,13 +17,11 @@ class ValidacionDatosRegistro
     USUARIO_NICK    => 'El nombre de usuario no es válido.',
   ];
 
-  public function __construct(Modelo $modelo)
-  {
+  public function __construct(Modelo $modelo) {
     $this->modelo = $modelo;
   }
 
-  public function validar($datos)
-  {
+  public function validar($datos) {
     $errores = [];
 
     foreach ($datos as $clave => $valor) :
@@ -53,8 +50,15 @@ class ValidacionDatosRegistro
     return $errores;
   }
 
-  private function validar_email($email)
-  {
+  private function validar_email($email) {
     return sizeof($this->modelo->select(DB_TABLA_USUARIOS, USUARIO_MAIL . "=?", array($email))) == 0;
+  }
+
+  public function validarLogin($mail, $contraseña) {
+    echo var_dump($this->modelo->checkLogin(array($mail, $contraseña)));
+
+    // return
+    //   sizeof($this->modelo->select($tabla, USUARIO_MAIL . "=?", array($datos[USUARIO_MAIL]))) == 1 &&
+    //   sizeof($this->modelo->select($tabla, USUARIO_C . "=?", array($datos[USUARIO_NICK]))) == 1;
   }
 }

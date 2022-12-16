@@ -39,23 +39,7 @@
     </div>
   </main>
 
-  <script>
-    function gestionar_botones(e) {
-      cargar_formulario(e.target.id);
-    }
-
-    function cargar_formulario(formulario) {
-      var request = new XMLHttpRequest();
-      request.open("GET", `Vista/Plantillas/${formulario}.php`, false);
-      request.send();
-
-      document.getElementById('formulario').innerHTML = request.response;
-    }
-
-    document
-      .getElementById('botones')
-      .addEventListener('click', e => gestionar_botones(e));
-  </script>
+  <script src="Vista/scripts/page_acceso.js"></script>
 </body>
 
 </html>

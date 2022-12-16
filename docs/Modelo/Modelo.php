@@ -3,8 +3,7 @@
 /**
  * Performs CRUD operations.
  */
-class Modelo
-{
+class Modelo {
   private mysqli $conn;
 
   /**
@@ -16,8 +15,7 @@ class Modelo
    * 
    * @return bool Returns whether the connection succeeded or not.
    */
-  public function __construct()
-  {
+  public function __construct() {
     $this->conn = new mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
     // Check for errors in connection.
@@ -34,8 +32,7 @@ class Modelo
    * 
    * @return array Associative array of the rows retrieved from the query.
    */
-  public function select(string $table, string $statement, array $values)
-  {
+  public function select(string $table, string $statement, array $values) {
     $sql = "SELECT * FROM " . $table . " WHERE " . $statement;
     $statement = $this->conn->prepare($sql);
     $statement->execute($values);
@@ -54,8 +51,7 @@ class Modelo
    * @return bool Returns whether or not the object was 
    *              successfully inserted into the database.
    */
-  public function insert(string $table, array $array)
-  {
+  public function insert(string $table, array $array) {
     $sql = "INSERT INTO " . $table . " ";
     $fields = "(";
     $statement = "(";
@@ -83,8 +79,7 @@ class Modelo
    * @return bool Returns whether or not the entry was 
    *              successfully updated the database.
    */
-  public function update($obj)
-  {
+  public function update($obj) {
     $data = get_object_vars($obj);
     if (!$data['id']) return false;
 
@@ -121,8 +116,7 @@ class Modelo
    * @return bool Returns whether or not the entry was 
    *              successfully deleted from the database.
    */
-  public function delete($obj)
-  {
+  public function delete($obj) {
     $data = get_object_vars($obj);
     if (!$data['id']) return false;
 
@@ -136,8 +130,28 @@ class Modelo
    * ! NO REVISADO 
    * Closes the connection to the database.
    */
-  public function close()
-  {
+  public function close() {
     return $this->conn->close();
+  }
+
+  public function checkLogin(array $array) {
+    $values = array();
+    $sql = 'SELECT ?, ? FROM ' . DB_TABLA_USUARIOS . '
+            INNER JOIN ' . DB_TABLA_CONTRASEÑAS . '
+              ON usuarios.id = passwords.id_usuario
+            WHERE ? = ?
+              AND	? = ?;';
+    echo $sql;
+
+    foreach ($array as $key => $value) :
+      array_push($values, $value);
+    endforeach;
+    foreach ($array as $key => $value) :
+      array_push($values, $key);
+      array_push($values, $value);
+    endforeach;
+
+    $statement = $this->conn->prepare($sql);
+    return $statement->execute($values);
   }
 }

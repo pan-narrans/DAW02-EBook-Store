@@ -1,17 +1,14 @@
 <?php
 
-class Controlador
-{
+class Controlador {
 
   private Modelo $modelo;
 
-  public function __construct(Modelo $modelo)
-  {
+  public function __construct(Modelo $modelo) {
     $this->modelo = $modelo;
   }
 
-  public function registrarUsuario($datos_formulario)
-  {
+  public function registrarUsuario($datos_formulario) {
     // Mapeo del formulario a la base de datos y separación en tablas para facilitar el insert.
     require_once('form_mapping.php');
     $usuario      = $this->map($mapa_tabla_usuarios, $datos_formulario);
@@ -29,7 +26,7 @@ class Controlador
       $usuario[USUARIO_TIPO]
     );
 
-   // VALIDACIÓN
+    // VALIDACIÓN
     require_once('Control/Validacion.php');
     $validador  = new ValidacionDatosRegistro($this->modelo);
     $errores = [];
@@ -62,8 +59,17 @@ class Controlador
     endif;
   }
 
-  public function map(array $mapa, array $datos)
-  {
+  public function logUsuario($datos_formulario) {
+    require_once('form_mapping.php');
+    $usuario    = $this->map($mapa_tabla_usuarios, $datos_formulario);
+    $contraseña = $this->map($mapa_tabla_contraseñas, $datos_formulario);
+
+    require_once('Control/Validacion.php');
+    $validador  = new ValidacionDatosRegistro($this->modelo);
+    $validador->validarLogin($usuario[USUARIO_MAIL], $contraseña[CONTRASEÑA_VALOR]);
+  }
+
+  public function map(array $mapa, array $datos) {
     $datos_mapeados = [];
 
     foreach ($datos as $clave => $valor) :

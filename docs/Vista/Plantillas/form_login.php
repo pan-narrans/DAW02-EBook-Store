@@ -1,24 +1,12 @@
 <h1 class="text-center" id="title">Acceso a Cuenta</h1>
 
-<form action="index.php" method="POST" id="landingForm" aria-label="Formulario para darse de alta en la tienda.">
-  <!-- USERNAME -->
-  <fieldset>
-    <legend class="d-none">Nombre de usuario</legend>
-    <div class=" input-group">
-      <label for="usuario" class="d-none"> Nombre de Usuario (Obligatorio)</label>
-      <input type="usuario" name="usuario" id="usuario" placeholder="Nombre de Usuario" class="form-control w-100" required value="<?= isset($_POST['usuario']) ? $_POST['usuario'] : ""; ?>">
-    </div>
-
-    <!-- USERNAME ALERT -->
-    <p id="username_alert" class="text-danger">
-  </fieldset>
-
+<form action="index.php" method="POST" id="formulario_login" name="formulario_login" aria-label="Formulario para darse de alta en la tienda.">
   <!-- EMAIL -->
   <fieldset>
     <legend class="d-none">E-mail</legend>
     <div class=" input-group">
       <label for="email" class="d-none"> E-mail (Obligatorio)</label>
-      <input type="email" name="email" id="email" placeholder="E-mail" class="form-control" required value="<?= isset($_POST['email']) ? $_POST['email'] : ""; ?>">
+      <input type="email" name="email" id="email" placeholder="E-mail" class="form-control" required>
     </div>
 
     <!-- NAME & SURNAME ALERT -->
@@ -30,7 +18,7 @@
     <legend class="d-none">Contraseña</legend>
     <div class=" input-group">
       <label for="password_1" class="d-none"> Contraseña (Obligatorio)</label>
-      <input type="password" name="password_1" id="password_1" placeholder="Contraseña" class="form-control" required value="<?= isset($_POST['password_1']) ? $_POST['password_1'] : ""; ?>">
+      <input type="password" name="password_1" id="password_1" placeholder="Contraseña" class="form-control" required>
     </div>
 
     <!-- PASSWORD ALERTS -->
@@ -45,7 +33,7 @@
     <input type="reset" value="Resetear valores" aria-label="Resetear los valores del formulario" class="btn btn-secondary">
   </section>
 
-  <input type="text" name="op" id="op" hidden value="registrar_usuario">
+  <input type="text" name="op" id="op" hidden value="log_usuario">
 
   <section class="my-3">
     <p id="submit_alert" class="text-success"></p>
