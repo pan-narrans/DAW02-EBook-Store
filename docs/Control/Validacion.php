@@ -1,6 +1,6 @@
 <?php
 
-class ValidacionDatosRegistro {
+class ValidacionDatos {
   private Modelo $modelo;
 
   // TODO:
@@ -13,7 +13,7 @@ class ValidacionDatosRegistro {
   ];
 
   // TODO:
-  private $mensajes = [
+  private $mensajes_registro = [
     USUARIO_NICK    => 'El nombre de usuario no es válido.',
   ];
 
@@ -21,7 +21,7 @@ class ValidacionDatosRegistro {
     $this->modelo = $modelo;
   }
 
-  public function validar($datos) {
+  public function validarRegistro($datos) {
     $errores = [];
 
     foreach ($datos as $clave => $valor) :
@@ -34,8 +34,8 @@ class ValidacionDatosRegistro {
         continue;
 
       // El regex ha dado negativo o error, añadimos el mensaje de error al array.
-      if (isset($this->mensajes[$clave]))
-        array_push($errores, $this->mensajes[$clave]);
+      if (isset($this->mensajes_registro[$clave]))
+        array_push($errores, $this->mensajes_registro[$clave]);
       else
         array_push($errores, "Ha ocurrido un error en el campo '$clave'.");
     endforeach;
@@ -55,10 +55,9 @@ class ValidacionDatosRegistro {
   }
 
   public function validarLogin($mail, $contraseña) {
-    echo var_dump($this->modelo->checkLogin(array($mail, $contraseña)));
-
-    // return
-    //   sizeof($this->modelo->select($tabla, USUARIO_MAIL . "=?", array($datos[USUARIO_MAIL]))) == 1 &&
-    //   sizeof($this->modelo->select($tabla, USUARIO_C . "=?", array($datos[USUARIO_NICK]))) == 1;
+    if ($this->modelo->checkLogin(array($mail, $contraseña)))
+      return;
+    else
+      return "Credenciales incorrectas";
   }
 }

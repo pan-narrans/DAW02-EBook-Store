@@ -21,18 +21,18 @@ class Controlador {
     // Guardar el usuario en sesión
     require_once('Modelo/Usuario.php');
     $_SESSION['usuario'] = new Usuario(
-      $usuario[USUARIO_NICK],
       $usuario[USUARIO_MAIL],
+      $usuario[USUARIO_NICK],
       $usuario[USUARIO_TIPO]
     );
 
     // VALIDACIÓN
     require_once('Control/Validacion.php');
-    $validador  = new ValidacionDatosRegistro($this->modelo);
+    $validador  = new ValidacionDatos($this->modelo);
     $errores = [];
-    $errores = array_merge($errores, $validador->validar($usuario));
-    $errores = array_merge($errores, $validador->validar($datos_extra));
-    $errores = array_merge($errores, $validador->validar($contraseña));
+    $errores = array_merge($errores, $validador->validarRegistro($usuario));
+    $errores = array_merge($errores, $validador->validarRegistro($datos_extra));
+    $errores = array_merge($errores, $validador->validarRegistro($contraseña));
 
     // INSERCIÓN EN BASE DE DATOS
     if (sizeof($errores) == 0) :
@@ -65,8 +65,20 @@ class Controlador {
     $contraseña = $this->map($mapa_tabla_contraseñas, $datos_formulario);
 
     require_once('Control/Validacion.php');
-    $validador  = new ValidacionDatosRegistro($this->modelo);
-    $validador->validarLogin($usuario[USUARIO_MAIL], $contraseña[CONTRASEÑA_VALOR]);
+    $errores = [];
+    $validador  = new ValidacionDatos($this->modelo);
+    $errores = array_merge($errores, $validador->validarLogin($usuario[USUARIO_MAIL], $contraseña[CONTRASEÑA_VALOR]));
+
+    if (sizeof($errores) == 0) :
+      $_SESSION['usuario'] = new Usuario(
+        $usuario[USUARIO_MAIL],
+        $usuario[USUARIO_NICK],
+        $usuario[USUARIO_TIPO]
+      );
+    else :
+      var_dump($errores);
+      require_once('Vista/page_acceso.php');
+    endif;
   }
 
   public function map(array $mapa, array $datos) {

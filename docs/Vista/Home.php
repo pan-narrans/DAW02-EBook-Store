@@ -52,7 +52,7 @@
 
         <!-- AQUÍ IRÍA EL LOG -->
         <div class="d-flex">
-          <!-- <img src="Vista/images/default_avatars/1.png" alt="" width="auto" height="25"> -->
+          <img src="Vista/images/default_avatars/1.png" alt="" width="auto" height="25">
           <form action="." method="POST">
             <button name="op" value="mostrar_acceso" class="btn btn-primary">Acceder</button>
           </form>
@@ -60,6 +60,13 @@
       </div>
     </div>
   </nav>
+
+  <script>
+    var request = new XMLHttpRequest();
+    request.open("GET", `Control/Interfaz.php`);
+    request.onerror = (e) => console.error(request.statusText);
+
+  </script>
 
 </body>
 
