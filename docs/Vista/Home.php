@@ -20,12 +20,12 @@
   <!-- ACCESSIBILITY BUTTONS -->
   <?php require_once('Plantillas/botones_accesibilidad.html') ?>
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark p-0">
     <div class="container-fluid">
 
       <!-- LOGO -->
-      <a class="navbar-brand" href="#">
-        <img src="Vista/images/Logo.png" alt="E-book" width="auto" height="25">
+      <a class="navbar-brand" href="Home.php">
+        <img src="images/Logo.png" alt="E-book" width="auto" height="25">
       </a>
 
       <!-- V. MÓVILES -->
@@ -50,7 +50,7 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form> -->
 
-        <div class="input-group w-25 m-4">
+        <div class="input-group w-25 m-0">
           <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="basic-addon1">
           <button type="button" class="btn btn-secondary">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -61,9 +61,9 @@
 
         <!-- AQUÍ IRÍA EL LOG -->
         <div class="d-flex">
-          <img src="Vista/images/default_avatars/1.png" alt="" width="auto" height="25" class="m-4">
+          <img src="images/default_avatars/1.png" alt="" width="auto" height="25" class="m-3">
           <form action="." method="POST">
-            <button name="op" value="mostrar_acceso" class="btn btn-primary m-3">Acceder</button>
+            <button name="op" value="mostrar_acceso" class="btn btn-primary m-2">Acceder</button>
           </form>
         </div>
       </div>
@@ -77,6 +77,7 @@
 
   </script>
 
+<!-- Carrousel no funciona, revisar -->
   <section>
     <div id="carouselOfertas" class="carousel slide mt-0" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -86,13 +87,13 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100" src="Vista/images/Modelo/1.jpg" alt="">
+          <img class="d-block w-100" src="images/Modelo/1.jpg" alt="">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="Vista/images/Modelo/2.jpg" alt="">
+          <img class="d-block w-100" src="images/Modelo/2.jpg" alt="">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100" src="Vista/images/Modelo/3.jpg" alt="">
+          <img class="d-block w-100" src="images/Modelo/3.jpg" alt="">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselOfertas" role="button" data-slide="prev">
@@ -102,7 +103,120 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
       </a>
     </div>
+
+<!-- Libros destacados -->
+    <div class="d-flex justify-content-around">
+      <div class="card m-3">
+        <img class="card-img-top" src="images/Modelo/ModeloLibro.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Título</h5>
+        </div>
+      </div>
+      <div class="card m-3">
+        <img class="card-img-top" src="images/Modelo/ModeloLibro.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Título</h5>
+        </div>
+      </div>
+      <div class="card m-3">
+        <img class="card-img-top" src="images/Modelo/ModeloLibro.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Título</h5>
+        </div>
+      </div>
+      <div class="card m-3">
+        <img class="card-img-top" src="images/Modelo/ModeloLibro.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Título</h5>
+        </div>
+      </div>
+      <div class="card m-3">
+        <img class="card-img-top" src="images/Modelo/ModeloLibro.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Título</h5>
+        </div>
+      </div>
+    </div>
   </section>
+  <!-- Texto y foto -->
+  <article>
+    <div class="container mt-5">
+        <div class="row justify-content-around">
+            <div class="col-md-7 text-center">
+                <p>Texto explicativo de lo maravillosa que es la tienda y por qué tienen que compar aquí sus libros en vez de piratearlos o comprarlos en otros sitios. Porque somos guays</p>
+            </div>
+            <div class="col-md-4 w-80">
+                <img src="images/Modelo/CompranosMolamos.jpg" class="w-100" alt="">
+            </div>
+        </div>
+    </div>
+<!-- Beneficios -->
+    <div class="bg-dark m-5">
+      <h2 class="m-3 text-light text-center">Beneficios de la lectura</h2>
+      <div class="d-flex justify-content-around">
+        <div class="card m-3">
+          <img class="card-img-top" src="images/Modelo/ModeloLibro.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Título</h5>
+          </div>
+        </div>
+        <div class="card m-3">
+          <img class="card-img-top" src="images/Modelo/ModeloLibro.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Título</h5>
+          </div>
+        </div>
+        <div class="card m-3">
+          <img class="card-img-top" src="images/Modelo/ModeloLibro.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Título</h5>
+          </div>
+        </div>
+        <div class="card m-3">
+          <img class="card-img-top" src="images/Modelo/ModeloLibro.jpg" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Título</h5>
+          </div>
+        </div>
+        <div class="card m-3">
+        <img class="card-img-top" src="images/Modelo/ModeloLibro.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Título</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Géneros vendidos -->
+    <div class="bg-light mt-5 text-center">
+      <h2 class="m-3">Géneros más vendidos</h2>
+      <div class="d-flex justify-content-around">
+        <div class="card bg-dark">
+          <img class="card-img" src="images/Modelo/ModeloLibro.jpg" alt="Card image">
+          <div class="card-img-overlay">
+            <h5 class="card-title bg-light bg-opacity-50 mt-5">Título</h5>
+          </div>
+        </div>
+        <div class="card bg-dark">
+          <img class="card-img" src="images/Modelo/ModeloLibro.jpg" alt="Card image">
+          <div class="card-img-overlay">
+            <h5 class="card-title bg-light bg-opacity-50 mt-5">Título</h5>
+          </div>
+        </div>
+        <div class="card bg-dark">
+          <img class="card-img" src="images/Modelo/ModeloLibro.jpg" alt="Card image">
+          <div class="card-img-overlay">
+            <h5 class="card-title bg-light bg-opacity-50 mt-5">Título</h5>
+          </div>
+        </div>
+        <div class="card bg-dark">
+          <img class="card-img" src="images/Modelo/ModeloLibro.jpg" alt="Card image">
+          <div class="card-img-overlay">
+            <h5 class="card-title bg-light bg-opacity-50 mt-5">Título</h5>
+          </div>
+        </div>
+      </div>
+    </div>
 
 </body>
 
